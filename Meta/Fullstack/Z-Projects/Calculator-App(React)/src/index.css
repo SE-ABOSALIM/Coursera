@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply p-0 m-0 box-border select-none;
+  }
+
+  body {
+    @apply bg-cyan-400 flex justify-center items-center min-h-screen;
+  }
+}
+
+@layer component {
+  .button {
+    @apply !bg-amber-400 w-16 h-14 rounded-xl hover:!bg-opacity-85 hover:!scale-[103%] active:!scale-95 transition-all duration-100;
+  }
+}
