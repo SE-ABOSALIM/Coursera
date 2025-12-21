@@ -1,0 +1,9 @@
+Centralized Version Control Systems:
+A Centralized Version Control System stores all project files and their version history in a single central server.
+Example: Subversion (SVN), Perforce, CVS
+
+
+Distributed Version Control Systems:
+A Distributed Version Control System allows every developer to have a complete copy of the repository — including its 
+full history — on their own machine.
+Example: Git, Mercurial, Bazaar

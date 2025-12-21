@@ -1,0 +1,25 @@
+Jest:
+- Jest framework test type is Unit Testing (Test in isolation).
+- Jest is a library to do unit tests to the web application.
+
+Mocking:
+- Means creating fake versions of real dependencies (like APIs, databases, modules, or functions) so that you can 
+test your code in isolation (seperated parts) — without actually calling those real systems.
+- Mocking allows you to pretend that users are already there if the backend hasn't been built yet.
+
+Code Coverage:
+- Code coverage measures how much of your code gets executed while your tests run.
+- It tells you what parts of your code are actually being tested — and what parts are not.
+In short:
+More coverage = more of your code is being verified by tests.
+Low coverage = some functions or branches never got tested.
+
+
+Snapshot Test:
+A snapshot test in Jest saves a “snapshot” (a serialized version) of your component’s output or a function’s return value.
+On future test runs, Jest compares the current output to that saved snapshot.
+
+In simple terms:
+First time: Jest takes a picture of the output.
+Next times: Jest checks if the new output matches that picture.
+If it’s different — the test fails.

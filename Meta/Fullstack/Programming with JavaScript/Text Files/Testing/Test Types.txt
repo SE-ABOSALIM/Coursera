@@ -1,0 +1,28 @@
+Test Types is 3:
+
+1) End-to-End(e2e):
+- This testing type requires to run the web application and interact with it like user to test its behaving as expected.
+- This type is the slowest and most time consuming.
+
+For Example: Press the login button or add some products to card etc.
+
+Some e2e test frameworks:
+$ WebdriverJS
+$ Protractor
+$ Cypress
+
+2) Integration:
+- Integration type is to test how the part of application interact with other parts
+- This type is faster and cheaper than e2e type
+
+Integration test framework:
+$ React testing library
+$ Enzyme
+
+3) Unit:
+- Unit testing is the process of testing the smallest units of your source code in isolation.
+- The smallest unit is functions or methods.
+- This type is the faster and cheapest.
+
+Unit test framework:
+$ Jest

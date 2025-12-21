@@ -1,0 +1,6 @@
+TDD:
+- TDD (Test-Driven Development) means you write the tests first, before writing the actual implementation code.
+- Unit testing approch.
+
+In short:
+🧪 Write a failing test → 💻 Write just enough code to make it pass → 🔁 Refactor.
