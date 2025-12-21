@@ -1,0 +1,176 @@
+1) Zero-Shot Prompting
+You provide no examples.
+The model must infer the task from natural language alone.
+
+Use when:
+- The task is simple
+- You rely on the model’s prior knowledge
+- You don’t need a specific format
+
+Example:
+Translate this sentence into English: "Merhaba nasılsın?"
+
+
+
+
+
+2) One-Shot Prompting
+You give one example to demonstrate the pattern or expected output.
+
+Use when:
+- Format matters
+- You want the model to follow a specific style
+- You don’t need multiple examples
+
+Example:
+Input: 2+2
+Output: 4
+
+Now solve:
+Input: 3+5
+
+
+
+
+
+3) Few-Shot Prompting
+You give multiple examples (usually 2–10).
+The goal is to teach the model a pattern more strongly.
+
+Use when:
+- You need consistent formatting
+- The model struggles with zero-shot
+- The task has a clear input→output structure
+
+Example 1:
+Input: Mevsim
+Output: Season
+
+Example 2:
+Input: Kitap
+Output: Book
+
+Now translate:
+Input: Şehir
+
+
+
+
+
+
+4) Chain-of-Thought (CoT) Prompting
+You provide examples that include step-by-step reasoning, not just the answer.
+
+Use when:
+- The task requires deep reasoning
+- Math, logic, planning, deductions
+- You want the model to show its thought process
+
+Example:
+Question: Ali has 3 pens and buys 2 more. How many pens does he have?
+Reasoning: 3 + 2 = 5
+Answer: 5
+
+Now solve:
+Question: Ayşe had 10 apples and gave away 4. How many are left?
+
+
+
+
+
+
+5)Role-Playing Prompting
+Role-playing prompting means assigning the model a specific identity or profession so it answers 
+as if it were that role.
+You are not giving examples (like few-shot), and you're not giving reasoning steps (like CoT).
+You are changing the model’s persona to influence the tone, depth, style, and domain knowledge.
+
+Use when:
+Use role-playing prompting when you want answers from a specific perspective:
+- Senior software engineer
+- Product Manager
+- Data Analyst
+
+Example:
+Act as a senior frontend engineer.
+Explain how to center a div using modern CSS techniques.
+Keep the explanation concise.
+
+
+
+
+
+6) Zero-Shot CoT (The “Magic Phrase”)
+No examples.
+You simply activate reasoning with the classic trigger:
+➡️ "Let's think step by step."
+
+Use when:
+- You need reasoning, but don’t want to craft examples
+- Fast, powerful method for complex tasks
+
+Example:
+Question: 15 apples are shared among 5 people. How many per person?
+Let's think step by step.
+
+
+
+
+
+
+7) Auto-CoT (Automatic Chain-of-Thought)
+The model generates its own reasoning examples, then uses them as few-shot CoT.
+
+Use when:
+- You want CoT but don’t have handcrafted examples
+- You need scalable reasoning patterns
+
+Workflow:
+1) Ask model to generate reasoning samples
+2) Use those samples in future prompts
+
+
+
+
+
+
+8) ReAct Prompting (Reason + Act)
+The model alternates between:
+Thoughts (reasoning)
+Actions (tool calls)
+Used in agent systems.
+
+Use when:
+The model needs tools (search, calculator, DB)
+Multi-step workflows
+LLM-agents
+
+Workflow:
+Thought:
+Action:
+Observation:
+Answer:
+
+
+
+
+
+9) Self-Consistency
+Not a shot type by itself, but a decoding strategy layered on top of CoT.
+You make the model generate multiple reasoning paths, then choose the most consistent answer.
+
+Use when:
+- Accuracy is critical
+- Math, logic, planning tasks
+
+
+
+
+
+10) RAG Prompting (Retrieval-Augmented Prompting)
+You provide external knowledge before the question.
+Not technically a “shot type,” but commonly taught alongside them.
+
+Use when:
+- The model must use specific or private data
+- You need updated/accurate domain knowledge

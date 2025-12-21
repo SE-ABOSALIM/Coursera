@@ -1,0 +1,34 @@
+What Is the Interview Pattern?
+The Interview Pattern is a prompting technique where you instruct the model to act like an interviewer.
+Instead of giving all the details upfront, the model asks strategic questions to gather the missing 
+information before generating the final answer.
+
+This pattern is powerful because:
+- It reduces ambiguity
+- Ensures accuracy
+- Produces tailored and high-quality results
+- Forces the model to think step-by-step and clarify requirements
+
+** Basic Structure **
+
+1. Role Assignment
+You tell the model to act like an interviewer:
+- You are an expert interviewer.
+- Before answering, ask me 3–6 clarifying questions.
+
+2. Clarification Phase
+Model asks questions like:
+- What is your target audience?
+- Should the tone be formal or casual?
+- What format do you need?
+- Do you want visuals, code, or plain text?
+
+3. Final Output Phase
+After receiving enough information, the model produces the final answer with high accuracy.
+
+Example Prompt:
+Act as a senior prompt engineer interviewing me.
+Before generating any answer, ask all the necessary questions
+to fully understand what I want.
+Ask your questions one by one.
+After you gather enough information, produce the final output.

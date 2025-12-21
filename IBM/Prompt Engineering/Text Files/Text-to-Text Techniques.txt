@@ -1,0 +1,47 @@
+1) Task Specification
+A technique used to tell the model exactly what task to perform.
+
+Examples:
+“Summarize this text in bullet points.”
+“Reduce this paragraph to 100 words.”
+It clarifies the structure and scope but does not ensure expertise or bias control.
+
+2) Contextual guidence:
+Text prompts provide specific instructions to the LLM's
+
+Example:
+"Write a short paragraph on New York City, highlighting its iconic landmarks"
+
+3) Domain Expertise
+A technique where you ask the model to respond as if it were an expert in a specific field.
+
+Examples:
+“Explain this like a medical expert.”
+“Provide technical details as a data scientist.”
+This improves accuracy in specialized and technical subjects, such as medicine or engineering.
+
+4) Bias Mitigation
+A prompt strategy used to reduce or eliminate demographic bias in model outputs.
+
+Examples:
+"Write a 100-word paragraph on leadership traits without favoring any gender. Provide equal 
+examples of traits from all genders"
+“Do not favor or discriminate against any demographic group.”
+“Provide responses that are objective and fair.
+This is crucial for ethically sensitive tasks such as hiring recommendations.
+
+5) Framing
+Providing contextual framing to shape the tone, style, or perspective of the response.
+
+Examples:
+“Explain this as if you were teaching a beginner.”
+“Describe this situation in a real-life context.”
+Framing sets the approach but does not guarantee accuracy or fairness.
+
+6) Random Sampling
+A technique that increases randomness to produce more diverse or creative responses.
+It is not suitable for domains requiring precision (e.g., hiring, legal, medical).
+
+7) Framing With Personal Anecdotes
+A technique where prompts include a personal story or viewpoint to shape the response.
+Useful for tone/personalization, but not appropriate for objective or technical tasks.
