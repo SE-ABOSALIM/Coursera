@@ -1,0 +1,37 @@
+Controlled Component nedir?
+Form elemanının değeri React state tarafından kontrol ediliyorsa → Controlled
+
+Temel fikir
+- Input’un değeri React state’indedir
+- Her değişiklik onChange ile state’e gider
+- React = tek kaynak (single source of truth)
+
+✅ Avantajları
+- Anında validation
+- Formu programatik kontrol edebilirsin
+- State her zaman güncel
+- Debug etmek kolay
+
+❌ Dezavantajları
+- Her tuş basımında render
+- Çok büyük formlarda performans maliyeti olabilir
+
+
+
+Uncontrolled Component nedir?
+Form elemanının değerini DOM tutuyorsa → Uncontrolled
+
+Temel fikir
+- React input değerini takip etmez
+- DOM kendi içinde yönetir
+- Gerekince ref ile okunur
+
+✅ Avantajları
+- Daha az render
+- Daha basit kod
+- Performanslı (bazı senaryolarda)
+
+❌ Dezavantajları
+- Validation zor
+- State kontrolü yok
+- React felsefesine daha uzak
