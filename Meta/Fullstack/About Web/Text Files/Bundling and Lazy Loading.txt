@@ -1,0 +1,39 @@
+Bundling – Definition:
+Bundling is the process of combining multiple JavaScript, CSS, and asset files into a 
+few optimized files (usually one or a few bundles) before sending them to the browser.
+
+Why Bundling?
+If the browser loaded each file separately, it would make hundreds of HTTP requests → slow.
+So the bundler combines them.
+
+
+Lazy Loading – Definition
+Lazy loading is the technique of loading parts of your app only when they’re needed, instead of 
+all at once during the initial page load.
+This is also called code splitting — breaking your bundle into smaller chunks that load on demand.
+
+Why Lazy Loading?
+Imagine your app has 10 routes, but the user only visits /home.
+Without lazy loading, the browser downloads all 10 routes’ JS upfront (even unused ones).
+
+With lazy loading:
+The browser downloads only /home code initially.
+When the user visits /profile, it loads that chunk on demand.
+
+Example:
+// Normal import (bundled together)
+import Profile from './Profile';
+
+// Lazy load import
+const Profile = React.lazy(() => import('./Profile'));
+
+
+
+| Concept    |     Bundling                         |     Lazy Loading                           |
+| ---------- | ------------------------------------ | ------------------------------------------ |
+| Definition | Combine all files into bundles       | Load bundles only when needed              |
+| When       | Build time                           | Runtime (when user interacts)              |
+| Purpose    | Reduce requests, simplify deployment | Improve performance, reduce initial load   |
+| Tool       | Webpack, Vite, Rollup                | React.lazy, dynamic import, code splitting |
+| Effect     | Creates large bundle                 | Splits bundle into smaller chunks          |
+| Trade-off  | Faster build, slower first load      | Slight delay when new chunk loads          |

@@ -1,0 +1,61 @@
+Web Server:
+A Web Server is responsible for handling HTTP requests from clients (like browsers).
+It mainly serves static content — files such as HTML, CSS, JavaScript, and images — directly to the user.
+Common examples include Apache, Nginx, and Microsoft IIS.
+
+Key Points:
+Handles client (browser) requests via HTTP/HTTPS.
+Delivers static files directly.
+Forwards dynamic requests (like .php, .jsp, .py, etc.) to the Application Server.
+
+Example:
+When a user opens www.example.com, the web server sends the HTML, CSS, and JS files to the browser.
+
+
+
+
+Application Server:
+An Application Server handles business logic and dynamic content generation.
+It executes server-side code (for example, Java, Node.js, Python, or .NET) and creates the dynamic responses that the Web Server sends back to users.
+
+Key Points:
+Processes data, runs backend logic, and communicates with databases.
+Generates dynamic pages (e.g., user profiles, dashboards, search results).
+Common examples: Node.js, Tomcat, JBoss, Spring Boot, Django, ASP.NET Core.
+
+Example:
+When a user logs in, the Application Server verifies credentials, retrieves user info from a database, and sends back a personalized page to the Web Server.
+
+
+
+
+Caching:
+Caching is a technique that stores frequently used data or responses temporarily so they can be accessed faster later.
+It reduces the load on both the Application Server and the Database, improving response time.
+
+Types of Caching:
+Browser Cache: Stores static resources locally on the user’s device.
+Web Server Cache: Keeps copies of responses for repeated requests.
+Application Cache / Distributed Cache: Tools like Redis or Memcached store frequently accessed data in memory.
+
+Example:
+If multiple users request the same news feed, the Application Server can fetch it once, store it in cache, and serve it quickly for subsequent users.
+
+
+
+
+How They Communicate?
+
+Here’s the typical flow:
+Client (Browser) sends a request (e.g., GET /home) to the Web Server.
+
+The Web Server checks:
+If the requested content is static, it serves it immediately.
+If the content is dynamic, it forwards the request to the Application Server.
+
+The Application Server:
+Processes business logic.
+Retrieves or updates data from a Database (if needed).
+May check Cache first to avoid repeated database access.
+Returns the final response (HTML/JSON) to the Web Server.
+The Web Server sends that response back to the Client.

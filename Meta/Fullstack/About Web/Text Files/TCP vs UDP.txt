@@ -1,0 +1,2 @@
+TCP is used for data that must arrive correctly and in order like text and images. 
+UDP is used for sending data that can tolerate data loss like voice calls or live video streaming.

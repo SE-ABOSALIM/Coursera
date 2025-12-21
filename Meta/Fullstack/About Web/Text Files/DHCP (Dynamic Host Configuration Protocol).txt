@@ -1,0 +1,51 @@
+DHCP (Dynamic Host Configuration Protocol) = Otomatik IP dağıtan sistem.
+
+Bir cihazı (bilgisayar, telefon, TV vs.) modeme/router’a bağladığında şunlara ihtiyaç duyar:
+
+- IP adresi (örnek: 192.168.1.25)
+
+- Subnet mask (örnek: 255.255.255.0)
+
+- Default gateway yani çıkış noktası (genelde router’ın adresi: 192.168.1.1)
+
+- DNS sunucuları (Google DNS: 8.8.8.8 gibi)
+
+Bunları tek tek elle yazmana gerek kalmasın diye DHCP devreye girer.
+
+* Cihaz bağlanınca router’a der ki: “Bana ağ ayarlarını ver.”
+
+* Router da uygun bir IP ve diğer bilgileri gönderir.
+
+* Böylece cihaz otomatik olarak internete çıkar.
+
+
+
+
+Subnet Mask (Alt Ağ Maskesi):
+
+Bir IP adresinin hangi kısmının "ağ", hangi kısmının "cihaz" olduğunu gösterir.
+
+Ev ağlarında genelde 255.255.255.0 olur.
+Bu maske, “bir ağda en fazla 254 cihaz olabilir” demek.
+(Bir ağdaki cihazların birbirini görebilmesini sağlar.)
+
+
+
+Default Gateway (Varsayılan Ağ Geçidi):
+
+Tüm cihazların internete çıkış kapısıdır.
+
+Genelde modem/router’ın IP’sidir (örn. 192.168.1.1).
+Sen bilgisayardan Google’a gitmek isteyince paketler önce Gateway’e gider, oradan internete çıkar.
+
+
+
+
+DNS (Domain Name System):
+
+İnternetin “telefon rehberi”dir.
+
+Sen tarayıcıya www.youtube.com
+ yazarsın → DNS bunu IP adresine çevirir (örn. 142.250.185.78).
+
+Google DNS (8.8.8.8, 8.8.4.4) veya Cloudflare DNS (1.1.1.1) gibi herkesin kullanabileceği DNS sunucuları vardır.

@@ -1,0 +1,21 @@
+Static Content
+This type of content is static, meaning it does not change unless the developer manually updates it.
+It is usually created using HTML, CSS, and sometimes JavaScript.
+Static content looks the same every time the page is loaded, regardless of who views it.
+
+Examples:
+The text written on a button (e.g., “Submit”).
+Fixed elements like a sidebar or a footer.
+A company logo or a navigation bar that never changes.
+
+
+
+Dynamic Content
+This type of content is dynamic, meaning it can change automatically based on user interactions, data updates, or time.
+It often involves server-side processing (like Node.js, PHP, or Python) or client-side scripts that fetch and update data dynamically (using JavaScript, React, etc.).
+Dynamic content can look different for each user or at different times.
+
+Examples:
+A user’s profile page showing their personal data.
+A news feed that updates with the latest articles.
+Product prices that change based on availability or discounts.

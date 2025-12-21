@@ -1,0 +1,20 @@
+SPA (Single Page Application):
+A Single Page Application is a web app that loads a single HTML page and dynamically 
+updates the content without reloading the entire page from the server.
+
+In other words:
+The browser loads one main page (e.g. index.html) once,
+and JavaScript (React, Vue, etc.) handles everything after that — 
+page changes, content updates, navigation — on the client side.
+
+
+
+
+
+
+What SSR Means?
+
+SSR = Server-Side Rendering:
+It means the server generates the HTML for each page before sending it to the browser.
+So instead of the browser building the page using JavaScript (as in a typical SPA),
+the server builds the HTML and sends the ready-to-display page.
