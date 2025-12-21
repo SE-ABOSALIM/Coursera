@@ -1,0 +1,10 @@
+Transpiling: Converting one version of JavaScript (or JSX) into another version of JavaScript that the browser actually understands.
+
+React code is not pure JavaScript. It contains things like:
+- JSX (<div>Hello</div>)
+- Modern JS features (ES6+, imports, arrow functions, async/await, spread operators, optional chaining, etc.)
+- Sometimes TypeScript
+Browsers don’t understand JSX, and older browsers don’t support the latest JavaScript features either.
+
+The Transpiler Used in React: Babel(Javascript Compiler)
+React apps (CRA, Vite, Next.js, all of them) use Babel under the hood.

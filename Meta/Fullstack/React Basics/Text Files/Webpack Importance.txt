@@ -1,0 +1,13 @@
+So, webpack builds a dependency graph and bundles modules into one or more files that a browser 
+can consume.
+
+While it is doing that, it also does the following: 
+- It converts modern JS code - which can only be understood by modern browsers - 
+  into older versions of JavaScript so that older browsers can understand your code. 
+  This process is known as transpiling. For example, you can transpile ES7 code to ES5 
+  code using webpack.  
+- It optimizes your code to load as quickly as possible when a user visits your web pages. 
+- It can process your SCSS code into the regular CSS, which browsers can understand. 
+- It can build source maps of the bundle's building blocks  
+- It can produce various kinds of files based on rules and templates. This includes HTML files, 
+  among others. 
