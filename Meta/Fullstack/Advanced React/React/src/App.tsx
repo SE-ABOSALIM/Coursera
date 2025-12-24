@@ -4,6 +4,90 @@ const App = () => {
 
 export default App;
 
+/* useRef example */
+// import { useRef } from "react";
+
+// const App = () => {
+//   const inputRef = useRef<HTMLInputElement | null>(null);
+//   const focusInput = () => {
+//     if (inputRef.current) inputRef.current.focus();
+//   };
+
+//   return (
+//     <div>
+//       <input type="text" ref={inputRef} />
+//       <button onClick={focusInput} className="bg-amber-400 m-4 p-2 rounded-xl">
+//         Focus Input
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+/* useReducer hook */
+// import { useReducer } from "react";
+
+// type State = {
+//   money: number;
+// };
+
+// type Action = {
+//   type: string;
+// };
+
+// const App = () => {
+//   const reducer = (state: State, action: Action) => {
+//     switch (action.type) {
+//       case "buy_ingredients":
+//         return { ...state, money: state.money - 20 };
+
+//       case "sell_a_meal":
+//         return { ...state, money: state.money + 30 };
+
+//       case "celebrity_visit":
+//         return { ...state, money: state.money + 100 };
+
+//       default:
+//         return state;
+//     }
+//   };
+
+//   const [state, dispatch] = useReducer(reducer, {
+//     money: 100,
+//   });
+
+//   return (
+//     <div className="flex flex-col justify-center items-center">
+//       <div className="flex justify-center items-center">
+//         <button
+//           onClick={() => dispatch({ type: "buy_ingredients" })}
+//           className="bg-amber-400 m-4 p-2 rounded-xl"
+//         >
+//           Buy Ingredients
+//         </button>
+//         <button
+//           onClick={() => dispatch({ type: "sell_a_meal" })}
+//           className="bg-amber-400 m-4 p-2 rounded-xl"
+//         >
+//           Sell A Meal
+//         </button>
+//         <button
+//           onClick={() => dispatch({ type: "celebrity_visit" })}
+//           className="bg-amber-400 m-4 p-2 rounded-xl"
+//         >
+//           Celebrity Visit
+//         </button>
+//       </div>
+//       <h1 className="text-green-500 text-4xl font-bold self-center">
+//         {state.money}
+//       </h1>
+//     </div>
+//   );
+// };
+
+// export default App;
+
 /* Controlled and validated from */
 // import "./App.css";
 // import { useState } from "react";
