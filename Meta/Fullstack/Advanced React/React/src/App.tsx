@@ -4,6 +4,63 @@ const App = () => {
 
 export default App;
 
+/* Containment & Specialization - Children Example */
+// import type { ReactNode } from "react";
+
+// type AlertProps = {
+//   children: ReactNode;
+//   backgroundColor: string;
+// };
+
+// const Alert = ({ children, backgroundColor }: AlertProps) => {
+//   return (
+//     <div className="flex justify-center items-center min-h-screen ">
+//       <div className={`div ${backgroundColor}`}>{children}</div>
+//     </div>
+//   );
+// };
+
+// const DeleteAlert = () => {
+//   return (
+//     <div>
+//       <Alert backgroundColor="bg-gray-700">
+//         <h1 className="text-2xl font-bold text-white">Delete Account</h1>
+//         <p className="text-white">
+//           Are you sure you wanna delete your account?
+//         </p>
+//         <button className="bg-red-500 p-2 rounded-xl font-bold hover:bg-opacity-85 hover:scale-105 transition-all text-white">
+//           Delete Account
+//         </button>
+//       </Alert>
+//     </div>
+//   );
+// };
+
+// const ConfirmationAlert = () => {
+//   return (
+//     <div>
+//       <Alert backgroundColor="bg-gray-300">
+//         <h1 className="text-2xl font-bold">Confirm Account</h1>
+//         <p>You need to confirm your email to continue...</p>
+//         <button className="bg-green-500 p-2 rounded-xl font-bold hover:bg-opacity-85 hover:scale-105 transition-all">
+//           Confirm Account
+//         </button>
+//       </Alert>
+//     </div>
+//   );
+// };
+
+// const App = () => {
+//   return (
+//     <div>
+//       <ConfirmationAlert />
+//       {/* <DeleteAlert /> */}
+//     </div>
+//   );
+// };
+
+// export default App;
+
 /* Custom Hook */
 // import { useState, useEffect, useRef } from "react";
 
