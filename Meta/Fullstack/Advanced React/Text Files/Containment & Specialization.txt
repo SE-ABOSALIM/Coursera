@@ -1,0 +1,41 @@
+Containment (Composition with children)
+Containment is when a component doesn’t know in advance what child components it will contain.
+React uses the special props.children for this.
+
+Example:
+function Card({ children }) {
+  return <div className="card">{children}</div>;
+}
+
+function App() {
+  return (
+    <Card>
+      <h1>Title</h1>
+      <p>This is inside the card</p>
+    </Card>
+  );
+}
+
+
+
+Specialization (Customized versions of a component)
+Specialization is when one component is a specific version of a more general component.
+
+Example:
+function Dialog({ title, message }) {
+  return (
+    <div className="dialog">
+      <h2>{title}</h2>
+      <p>{message}</p>
+    </div>
+  );
+}
+
+function WelcomeDialog() {
+  return (
+    <Dialog
+      title="Welcome"
+      message="Thanks for visiting our app!"
+    />
+  );
+}
