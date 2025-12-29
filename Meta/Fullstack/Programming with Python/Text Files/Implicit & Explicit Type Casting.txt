@@ -1,0 +1,24 @@
+Implicit Type Casting (Automatic)
+Conversion is done automatically by Python, without the programmer writing any code for it.
+It usually happens to prevent data loss.
+
+Example:
+x = 10      # int
+y = 2.5     # float
+
+result = x + y
+print(result)        # 12.5
+print(type(result))  # <class 'float'>
+
+
+
+
+Explicit Type Casting (Manual)
+Conversion is done manually by the programmer using built-in functions like int(), float(), str(), etc.
+
+Example:
+x = "10"    # string
+
+y = int(x)
+print(y)        # 10
+print(type(y))  # <class 'int'>
