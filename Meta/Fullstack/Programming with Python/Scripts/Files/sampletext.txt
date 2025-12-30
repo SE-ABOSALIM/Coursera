@@ -1,0 +1,4 @@
+Hello, World!
+Welcome To Python Junior!
+This is the easiest language to learn.
+Sooo have fun...
