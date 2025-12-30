@@ -49,5 +49,7 @@ print(f'The dictionary: {dic}')
 print(f'The value in key 1: {dic[1]}')
 print(f'The value in key 3: {dic[3]}')
 print('All values & keys:')
+dic[4] = 'C++'
+print(f'The mutated dictionary: {dic}')
 for key, value in dic.items():
     print(f'{key}: {value}')
