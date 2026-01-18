@@ -8,3 +8,5 @@ function divide(num1, num2) {
 }
 
 module.exports = { addFive, divide };
+
+console.log("Hello");
