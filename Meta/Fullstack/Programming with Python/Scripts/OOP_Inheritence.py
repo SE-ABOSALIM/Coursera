@@ -14,3 +14,7 @@ class Bird(Animal):
 
 bird = Bird(15)
 print(bird.print_info())
+print(isinstance(bird, Animal))
+
+print(issubclass(Bird, Animal))
+print(issubclass(Animal, Bird))
