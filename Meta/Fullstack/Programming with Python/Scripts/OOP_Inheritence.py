@@ -5,7 +5,7 @@ class Animal:
         self.is_swim = is_swim
 
     def print_info(self):
-        return self.name + ' ' + self.is_fly + ' ' + self.is_swim
+        return 'This animal is ' + self.name + '\nCan it fly? ' + str(self.is_fly) + '\nCan it swim? ' + str(self.is_swim)
 
 class Bird(Animal):
     def __init__(self, age):

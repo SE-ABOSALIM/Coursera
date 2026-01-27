@@ -1,6 +1,6 @@
 class Car:
     # Constructor
-    def __init__(self, name, color, year):
+    def __init__(self, name, color, year): # Constructor
         self.__name = name # __: private
         self.__color = color
         self.__year = year
