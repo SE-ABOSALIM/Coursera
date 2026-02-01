@@ -11,7 +11,7 @@
 
 # Another way to open the file
 try:
-    with open('./Files/Test.txt', 'r') as file: # If the file non exist the error will be thrown
+    with open('../Files/Test.txt', 'r') as file: # If the file non exist the error will be thrown
         data = file.readlines()
         for line in data:
             print(line, end='')
