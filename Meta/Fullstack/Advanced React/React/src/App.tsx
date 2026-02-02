@@ -1,17 +1,24 @@
-import AuthDash from "./components/Dashboard";
-
 const App = () => {
-  return (
-    <>
-      <AuthDash
-        className="bg-slate-700 w-32 h-16 text-white p-4"
-        title="Admin Panel"
-      />
-    </>
-  );
+  return <div></div>;
 };
 
 export default App;
+
+/* HOC (Higher Order Component) topic Example */
+// import AuthDash from "./components/Dashboard";
+
+// const App = () => {
+//   return (
+//     <>
+//       <AuthDash
+//         className="bg-slate-700 w-32 h-16 text-white p-4"
+//         title="Admin Panel"
+//       />
+//     </>
+//   );
+// };
+
+// export default App;
 
 /* Containment & Specialization - Children Example */
 // import type { ReactNode } from "react";
