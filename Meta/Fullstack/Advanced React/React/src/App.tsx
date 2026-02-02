@@ -1,20 +1,13 @@
-import "./App.css";
-import { RadioGroup, RadioOption } from "./components";
-import { useState } from "react";
+import AuthDash from "./components/Dashboard";
 
 const App = () => {
-  const [selected, setSelected] = useState("");
   return (
-    <div className="App">
-      <h2>How did you hear about Little Lemon?</h2>
-      <RadioGroup onChange={setSelected} selected={selected}>
-        <RadioOption value="social_media">Social Media</RadioOption>
-        <RadioOption value="friends">Friends</RadioOption>
-        <RadioOption value="advertising">Advertising</RadioOption>
-        <RadioOption value="other">Other</RadioOption>
-      </RadioGroup>
-      <button disabled={!selected}>Submit</button>
-    </div>
+    <>
+      <AuthDash
+        className="bg-slate-700 w-32 h-20 text-white"
+        title="Admin Panel"
+      />
+    </>
   );
 };
 
