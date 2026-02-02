@@ -6,10 +6,10 @@ const withDarkMode = (Component: ComponentType) => {
   return (props: any) => {
     return activateDarkMode ? (
       <div className={styles}>
-        <Component {...props} />
+        <Component {...props} modeLabel="Dark Mode" />
       </div>
     ) : (
-      <Component {...props} />
+      <Component {...props} modeLabel="Light Mode" />
     );
   };
 };
