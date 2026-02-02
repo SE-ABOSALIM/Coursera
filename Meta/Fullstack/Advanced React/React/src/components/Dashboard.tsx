@@ -1,5 +1,6 @@
 // HOC (Higher Order Component) topic Example
 import withAuth from "../Utils/withAuth";
+import withDarkMode from "../Utils/withDarkMode";
 
 type DashboardProps = {
   className?: string;
@@ -14,6 +15,6 @@ const Dashboard = ({ className, title }: DashboardProps) => {
   );
 };
 
-const AuthDash = withAuth(Dashboard);
+const AuthDash = withDarkMode(withAuth(Dashboard));
 
 export default AuthDash;
