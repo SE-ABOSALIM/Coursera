@@ -2,7 +2,7 @@
 import type { ComponentType } from "react";
 
 const withAuth = (Component: ComponentType<any>) => {
-  const isAuth = true;
+  const isAuth = false;
   return (props: any) => {
     if (isAuth) {
       return <Component {...props} />;

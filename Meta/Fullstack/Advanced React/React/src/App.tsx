@@ -4,7 +4,7 @@ const App = () => {
   return (
     <>
       <AuthDash
-        className="bg-slate-700 w-32 h-20 text-white"
+        className="bg-slate-700 w-32 h-16 text-white p-4"
         title="Admin Panel"
       />
     </>
