@@ -10,7 +10,7 @@ const FormHandler = ({ render }: FormHandlerProps) => {
   const [error, setError] = useState({});
 
   const handleChange = (e: React.FormEvent<HTMLFormElement>) => {
-    const { name, value, type } = e.currentTarget;
+    const { name, value } = e.currentTarget;
     if (value === "") setError({ msg: `${name} is required` });
   };
 

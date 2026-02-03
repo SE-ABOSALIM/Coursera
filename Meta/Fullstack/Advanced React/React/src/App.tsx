@@ -1,5 +1,23 @@
+/* Render Props Currency converter app example */
+import CCApp from "./components/Currency Converter/CCApp";
+import EURO from "./components/Currency Converter/EURO";
+import USD from "./components/Currency Converter/USD";
+
 const App = () => {
-  return <></>;
+  return (
+    <>
+      <CCApp
+        render={(amount: number) => {
+          return (
+            <>
+              <USD amount={amount} />
+              <EURO amount={amount} />
+            </>
+          );
+        }}
+      />
+    </>
+  );
 };
 
 export default App;
