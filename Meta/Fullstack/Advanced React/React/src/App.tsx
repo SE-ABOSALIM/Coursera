@@ -1,34 +1,34 @@
-// const App = () => {
-//   return <></>;
-// };
-
-// export default App;
-
-/* Render Props Currency converter app example */
-import CCApp from "./components/Currency Converter/CCApp";
-import EURO from "./components/Currency Converter/EURO";
-import POUND from "./components/Currency Converter/POUND";
-import USD from "./components/Currency Converter/USD";
-
 const App = () => {
-  return (
-    <>
-      <CCApp
-        render={(amount: number) => {
-          return (
-            <>
-              <USD amount={amount} />
-              <EURO amount={amount} />
-              <POUND amount={amount} />
-            </>
-          );
-        }}
-      />
-    </>
-  );
+  return <></>;
 };
 
 export default App;
+
+/* Render Props Currency converter app example */
+// import CCApp from "./components/Currency Converter/CCApp";
+// import EURO from "./components/Currency Converter/EURO";
+// import POUND from "./components/Currency Converter/POUND";
+// import USD from "./components/Currency Converter/USD";
+
+// const App = () => {
+//   return (
+//     <>
+//       <CCApp
+//         render={(amount: number) => {
+//           return (
+//             <>
+//               <USD amount={amount} />
+//               <EURO amount={amount} />
+//               <POUND amount={amount} />
+//             </>
+//           );
+//         }}
+//       />
+//     </>
+//   );
+// };
+
+// export default App;
 
 /* Render Props Advanced Example */
 // import FormHandler from "./components/FormHandler";
