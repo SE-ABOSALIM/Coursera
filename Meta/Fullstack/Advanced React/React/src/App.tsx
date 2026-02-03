@@ -1,24 +1,108 @@
+const App = () => {
+  return <></>;
+};
+
+export default App;
+
+/* Render Props Advanced Example */
+// import FormHandler from "./components/FormHandler";
+
+// type FormHandlerRenderArgs = {
+//   formData: Record<string, unknown>;
+//   error: { msg?: string } | null;
+//   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+//   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+// };
+
 // const App = () => {
-//   return <div className=""></div>;
+//   const form = ({
+//     formData,
+//     error,
+//     handleChange,
+//     handleSubmit,
+//   }: FormHandlerRenderArgs) => {
+//     return (
+//       <>
+//         <form onSubmit={handleSubmit}>
+//           <label htmlFor="username">Name:</label>
+//           <input
+//             name="username"
+//             type="text"
+//             placeholder="Enter username"
+//             onChange={handleChange}
+//           />
+//           <label htmlFor="password">Name:</label>
+//           <input
+//             name="password"
+//             type="password"
+//             placeholder="Enter password"
+//             onChange={handleChange}
+//           />
+//           <input type="submit" className="hover:cursor-pointer" />
+//         </form>
+//       </>
+//     );
+//   };
+
+//   return (
+//     <>
+//       <FormHandler render={form} /> {/* Send the form function as a prop */}
+//     </>
+//   );
+// };
+
+// export default App;
+
+/* Render Props Basic Example: Render Props is a design pattern in React where a component receives a function as a prop and uses that 
+function to determine what to render, while sharing its internal state and logic with the rendered output. */
+// type ToggleProps = {
+//   flag: boolean;
+//   render: Function;
+// };
+
+// const Toggle = ({ flag, render }: ToggleProps) => {
+//   return (
+//     <>
+//       <h1 className="text-4xl mb-3 font-bold">This is Toggle</h1>
+//       {render(flag)}
+//     </>
+//   );
+// };
+
+// const App = () => {
+//   return (
+//     <div>
+//       <Toggle
+//         flag={true}
+//         render={(isOn: boolean) => {
+//           return isOn ? (
+//             <div>Toggle Component is On</div>
+//           ) : (
+//             <div>Toggle Component is Off</div>
+//           );
+//         }}
+//       />
+//     </div>
+//   );
 // };
 
 // export default App;
 
 /* HOC (Higher Order Component) topic Example */
-import AuthDash from "./components/Dashboard";
+// import AuthDash from "./components/Dashboard";
 
-const App = () => {
-  return (
-    <>
-      <AuthDash
-        className="bg-slate-700 w-32 h-20 text-white p-4"
-        title="Admin Panel"
-      />
-    </>
-  );
-};
+// const App = () => {
+//   return (
+//     <>
+//       <AuthDash
+//         className="bg-slate-700 w-32 h-20 text-white p-4"
+//         title="Admin Panel"
+//       />
+//     </>
+//   );
+// };
 
-export default App;
+// export default App;
 
 /* Containment & Specialization - Children Example */
 // import type { ReactNode } from "react";
