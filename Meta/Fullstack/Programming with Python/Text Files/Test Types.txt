@@ -1,0 +1,63 @@
+Unit / Component Testing
+👉 Tek tek parçalar doğru çalışıyor mu?
+
+Ne test edilir?
+Bir fonksiyon, bir sınıf, küçük bir bileşen
+
+Örnek:
+def add(a, b):
+    return a + b
+
+Test:
+assert add(2, 3) == 5
+
+🧠 “Parça sağlam mı?”
+
+
+
+
+Integration Testing
+👉 Parçalar birlikte çalışınca sorun çıkıyor mu?
+
+Ne test edilir?
+Modüller / servisler arası etkileşim
+
+Örnek:
+Kullanıcı kayıt fonksiyonu
+Veritabanına gerçekten kayıt yapıyor mu?
+API → DB akışı doğru mu?
+
+🧠 “Parçalar birbirini doğru anlıyor mu?”
+
+
+
+
+System Testing
+👉 Tüm sistem bir bütün olarak çalışıyor mu?
+
+Ne test edilir?
+Uygulamanın tamamı (frontend + backend + DB)
+
+Örnek:
+Kullanıcı siteye giriyor
+Kayıt oluyor
+Giriş yapıyor
+Profilini görüyor
+
+🧠 “Ürün komple çalışıyor mu?”
+
+
+
+
+
+Acceptance Testing
+👉 Müşteri bunu kabul eder mi? İstediği bu mu?
+
+Ne test edilir?
+İş gereksinimleri (requirements)
+
+Örnek:
+“Kullanıcı 3 saniyede giriş yapabilmeli”
+“Sipariş tamamlandı mesajı görünmeli”
+
+🧠 “Müşteri ‘tamam bu olmuş’ der mi?”
