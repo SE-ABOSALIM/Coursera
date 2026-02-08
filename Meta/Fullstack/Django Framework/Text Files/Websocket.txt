@@ -1,0 +1,2 @@
+WebSocket nedir?
+WebSocket, tarayıcı ile sunucu arasında sürekli açık kalan, çift yönlü (iki taraf da konuşabilir) bir bağlantıdır.

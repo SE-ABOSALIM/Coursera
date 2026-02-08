@@ -1,0 +1,26 @@
+Model (M) – Data & Business Logic
+What does it do?
+- Represents the database
+- Defines tables, fields, and relationships
+- Handles data structure and business rules
+
+In Django: models.py
+
+
+View (V) – Logic & Flow
+What does it do?
+- Receives the user request
+- Interacts with the Model if needed
+- Decides what response to return
+
+In Django: views.py
+
+
+
+Controller (C) – Where is it in Django?
+In classic MVC:
+- Controller handles routing and request flow
+
+In Django, this role is split:
+- urls.py → maps URLs to views
+- Django core → manages request/response lifecycle

@@ -1,3 +1,5 @@
-from django.shortcuts import render
+from django.http import HttpResponse 
 
-# Create your views here.
+def index(request):
+    content = '<html><head></head><body> <h1>I am Learning Django</h1> </body></html>'
+    return HttpResponse(content)

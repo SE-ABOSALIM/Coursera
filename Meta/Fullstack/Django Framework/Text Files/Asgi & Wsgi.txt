@@ -1,0 +1,36 @@
+WSGI ve ASGI Nedir?
+WSGI ve ASGI, web server ile Python uygulaması (app server) arasındaki bağlantı ve konuşma standardıdır.
+
+WSGI nedir?
+Senkron (sync) çalışır
+Bir istek biter, sonra diğeri işlenir
+Klasik HTTP istekleri için yeterlidir
+Kısaca: tek iş – sırayla
+
+ASGI nedir?
+Asenkron (async) çalışır
+Aynı anda birden fazla bağlantıyı yönetebilir
+Uzun süre açık kalan bağlantıları destekler
+Kısaca: çok iş – aynı anda
+
+
+
+Web Server
+- Nginx
+- Apache
+
+Görevi:
+- İnternetten isteği almak
+- Statik dosyaları vermek
+- İsteği arkaya (Python’a) iletmek
+
+
+App Server (Python tarafı)
+- Django
+- FastAPI
+- Flask
+
+Görevi:
+- İş mantığını çalıştırmak
+- Database ile konuşmak
+- Cevap üretmek
