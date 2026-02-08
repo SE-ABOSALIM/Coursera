@@ -4,7 +4,15 @@ from datetime import datetime
 
 # Create your views here.
 def home(req):
-    content = """ <h1 style="color: #00179C;"> Hello From app3 home page </h1> """
+    content = """ 
+        <h1 style="color: #00179C;"> 
+            Hello From app3 home page 
+        </h1> 
+        <ul>
+            <li>Try /app3/greet</li>
+            <li>Try /app3/display_year</li> 
+        </ul> 
+    """
     return HttpResponse(content)
 
 def greet(req):
