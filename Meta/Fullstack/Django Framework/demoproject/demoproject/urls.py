@@ -13,4 +13,5 @@ urlpatterns = [
     path('app6/', include('app6.urls')),
     path('app7/', include('app7.urls')),
     path('app8/', include('app8.urls')),
+    path('app9/', include('app9.urls')),
 ]
