@@ -11,6 +11,6 @@ urlpatterns = [
     path('app4/', include('app4.urls')),
     path('app5/', include('app5.urls')),
     path('app6/', include('app6.urls')),
-    # path('app7', include('app7.urls')),
-    # path('app8', include('app8.urls')),
+    path('app7/', include('app7.urls')),
+    path('app8/', include('app8.urls')),
 ]
