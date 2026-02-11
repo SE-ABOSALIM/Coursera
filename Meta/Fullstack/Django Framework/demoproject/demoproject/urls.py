@@ -15,3 +15,7 @@ urlpatterns = [
     path('app8/', include('app8.urls')),
     path('app9/', include('app9.urls')),
 ]
+
+# DEBUG = False Required
+handler404 = 'demoproject.views.handler404'
+handler400 = 'demoproject.views.handler400'
