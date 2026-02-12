@@ -5,6 +5,7 @@ from app import views
 
 urlpatterns = [ 
     path('', include('main.urls')),
+    path('admin/', admin.site.urls),
     path('demo/', views.index, name='index'), # name='index' alias for demo page
     path('app2/', include('app2.urls')),
     path('app3/', include('app3.urls')),
