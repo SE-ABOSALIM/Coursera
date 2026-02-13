@@ -1,0 +1,30 @@
+What is ORM in Django?
+ORM (Object Relational Mapping) allows you to interact with your database using Python instead of SQL
+
+So instead of writing:
+SELECT * FROM student WHERE age > 18;
+
+You write:
+Student.objects.filter(age__gt=18)
+
+Core Idea of ORM
+ORM maps:
+  Python 		Database
+**********	       **********
+  Class			 Table
+  Field			 Column
+  Object		  Row
+
+So your model:
+class Student(models.Model):
+    name = models.CharField(max_length=30)
+    surname = models.CharField(max_length=30)
+    age = models.IntegerField()
+
+becomes a table like:
+CREATE TABLE student (
+    id INT,
+    name VARCHAR(30),
+    surname VARCHAR(30),
+    age INT
+);
