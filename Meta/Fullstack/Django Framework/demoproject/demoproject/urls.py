@@ -19,7 +19,7 @@ urlpatterns = [
     path('app11/', include('app11.urls')), # models with ForeignKey practice
     path('app12/', include('app12.urls')), # models excersize to practice creating forms
     path('app13/', include('app13.urls')), # Introduction to Templates
-    path('app14/', include('app14.urls')), # Templates with model and view function to display dinamic content taken from DB + Parameter usage in urls.py
+    path('app14/', include('app14.urls')), # Templates with model and view function to display dinamic content taken from DB + Parameter usage in urls.py (variable + tags + filters)
 ]
 
 # DEBUG = False Required
