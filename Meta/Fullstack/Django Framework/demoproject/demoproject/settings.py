@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'app12.apps.App12Config',
     'app13.apps.App13Config',
     'app14.apps.App14Config',
+    'app15.apps.App15Config',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

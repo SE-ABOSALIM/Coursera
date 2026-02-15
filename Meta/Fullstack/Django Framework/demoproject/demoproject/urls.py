@@ -20,6 +20,7 @@ urlpatterns = [
     path('app12/', include('app12.urls')), # models excersize to practice creating forms
     path('app13/', include('app13.urls')), # Introduction to Templates
     path('app14/', include('app14.urls')), # Templates with model and view function to display dinamic content taken from DB + Parameter usage in urls.py (variable + tags + filters)
+    path('app15/', include('app15.urls')), # Template inheritence
 ]
 
 # DEBUG = False Required
