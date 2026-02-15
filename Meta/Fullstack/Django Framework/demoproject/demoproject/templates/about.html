@@ -1,0 +1,30 @@
+<!-- prettier-ignore -->
+
+{% comment %}
+Django first searches for templates inside the global directories defined in
+settings.TEMPLATES['DIRS'].
+
+If the template is not found there and APP_DIRS=True, Django then searches
+inside each app's templates folder.
+
+If the template is still not found, Django raises a TemplateDoesNotExist error.
+{% endcomment %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>From app13/templates</title>
+  </head>
+  <body>
+    <h1>About Us</h1>
+    <p>{{about_us}}</p>
+    <h2>Contributors</h2>
+    <ul>
+      {% for i in items %}
+      <li>{{i.name}} - {{i.surname}}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

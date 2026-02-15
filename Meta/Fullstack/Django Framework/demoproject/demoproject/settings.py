@@ -31,15 +31,16 @@ ALLOWED_HOSTS = ['127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'app10.apps.App10Config',
+    'app11.apps.App11Config',
+    'app12.apps.App12Config',
+    'app13.apps.App13Config',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app10',
-    'app11',
-    'app12',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'demoproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['demoproject/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
