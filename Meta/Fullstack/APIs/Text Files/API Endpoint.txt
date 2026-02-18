@@ -1,0 +1,4 @@
+An API endpoint is a URL used to access a specific resource within an API.
+
+In short:
+An endpoint is the access point of an API.

@@ -1,1 +1,2 @@
 https://www.coursera.org/learn/django-web-framework/lecture/Wxiy1/http-requests
+https://www.coursera.org/learn/apis/supplement/epTtA/http-methods-status-codes-and-response-types

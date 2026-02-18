@@ -1,0 +1,40 @@
+REST nedir?
+REST (Representational State Transfer) is an architectural style used to design web services.
+
+
+
+Requirements for an API to be RESTful (REST Principles):
+1. Client–Server Architecture
+   - The client and server have separate responsibilities.
+   - The client handles the user interface.
+   - The server manages data and business logic.
+   - They can evolve independently.
+
+2. Statelessness
+   - Each request from the client must contain all necessary information.
+   - The server does not store client session state between requests.
+
+3. Cacheability
+   - Responses must define whether they are cacheable.
+   - Caching improves performance and scalability.
+   - HTTP cache headers (e.g., Cache-Control) are used.
+
+4. Uniform Interface
+   - Resources are identified by URLs (nouns, not verbs).
+     Example: /api/users/5
+   - Standard HTTP methods are used correctly:
+       GET    -> Retrieve resource
+       POST   -> Create resource
+       PUT    -> Update resource (full)
+       PATCH  -> Update resource (partial)
+       DELETE -> Remove resource
+   - Responses are typically in JSON format.
+   - Proper HTTP status codes are used.
+
+5. Layered System
+   - The client does not know if it is connected directly
+     to the server or through intermediaries (e.g., proxy, gateway).
+   - The architecture can include multiple layers.
+
+6. Code on Demand (Optional)
+   - The server may send executable code to the client (rarely used).
