@@ -1,0 +1,133 @@
+Full Security Flow of a Single REST API Request (Step by Step)
+
+Scenario:
+A user sends a request to GET /api/orders from a mobile app.
+
+--------------------------------------------------
+
+0) Login Phase (Before the Request)
+
+Client -> Server (HTTPS):
+POST /login
+{
+  "username": "user1",
+  "password": "secret"
+}
+
+Server:
+- Verifies credentials
+- Generates JWT access token
+- Sends token back to client
+
+Client stores the token securely.
+
+--------------------------------------------------
+
+1) HTTPS / TLS Handshake (Transport Security)
+
+Before any data exchange:
+- Client verifies server certificate
+- Encryption keys are exchanged
+- Secure channel is established
+
+Result:
+✔ Data is encrypted
+✔ Man-in-the-middle attacks prevented
+
+--------------------------------------------------
+
+2) Client Sends API Request
+
+Client -> Server:
+GET /api/orders
+Authorization: Bearer <JWT_TOKEN>
+
+Token is protected by HTTPS during transit.
+
+--------------------------------------------------
+
+3) Firewall / API Gateway Checks
+
+System checks:
+- Is the IP blocked?
+- Is the request rate exceeded?
+- Is payload suspicious?
+
+If failed:
+→ Request rejected (429 / 403)
+
+--------------------------------------------------
+
+4) Authentication (Token Validation)
+
+Server verifies:
+- Authorization header exists
+- Token format is valid
+- Signature is correct
+- Token is not expired
+- Token is not revoked
+
+If invalid:
+→ 401 Unauthorized
+
+If valid:
+→ User is authenticated
+
+--------------------------------------------------
+
+5) Authorization (RBAC / Permissions)
+
+Server checks:
+- User role (admin / user)
+- Allowed permissions
+- Resource ownership
+
+Examples:
+- Admin → access all orders
+- User → access only own orders
+
+If not allowed:
+→ 403 Forbidden
+
+--------------------------------------------------
+
+6) Business Logic Execution
+
+Server:
+- Validates input
+- Runs database queries
+- Applies business rules
+- Prepares response data
+
+--------------------------------------------------
+
+7) Response Security
+
+Before responding:
+- Sensitive fields removed
+- Response serialized safely
+- Audit logs written
+
+Server -> Client (HTTPS):
+200 OK
+[
+  { "order_id": 101, "status": "shipped" }
+]
+
+--------------------------------------------------
+
+Security Layers Used in One Request
+
+- HTTPS        → Transport encryption
+- Rate Limiter → Abuse prevention
+- JWT          → Authentication
+- RBAC         → Authorization
+- Validation   → Injection protection
+- Logging      → Auditing
+
+--------------------------------------------------
+
+Key Concept:
+Security is layered.
+If one layer fails, others still protect the system.
+This is called "Defense in Depth".

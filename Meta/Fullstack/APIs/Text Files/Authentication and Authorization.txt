@@ -1,0 +1,121 @@
+Authentication & Authorization — Explained with One Code Snippet
+
+--------------------------------------------------
+Concepts
+
+Authentication = "Who are you?"
+Authorization  = "What are you allowed to do?"
+
+Authentication happens FIRST.
+Authorization happens AFTER authentication.
+
+--------------------------------------------------
+Single End-to-End Example (JWT + Role Check)
+
+Scenario:
+A user logs in, receives a token, and tries to access an admin-only endpoint.
+
+--------------------------------------------------
+1) Authentication (Login)
+
+Client sends credentials:
+
+POST /login
+{
+  "username": "john",
+  "password": "secret123"
+}
+
+Server logic:
+- Verify username & password
+- Generate a JWT containing user identity and role
+
+JWT payload example:
+{
+  "user_id": 42,
+  "role": "user",
+  "exp": 1700000000
+}
+
+Server response:
+200 OK
+{
+  "access_token": "<JWT_TOKEN>"
+}
+
+At this point:
+✔ User is AUTHENTICATED
+✖ No permissions checked yet
+
+--------------------------------------------------
+2) Authenticated Request
+
+Client sends request with token:
+
+GET /admin/dashboard
+Authorization: Bearer <JWT_TOKEN>
+
+--------------------------------------------------
+3) Authentication Check (Token Validation)
+
+Server middleware:
+- Is Authorization header present?
+- Is token signature valid?
+- Is token expired?
+
+If any fail:
+→ 401 Unauthorized
+
+If valid:
+✔ User identity is confirmed (john, role=user)
+
+--------------------------------------------------
+4) Authorization Check (Permission / Role)
+
+Server checks:
+- Required role for /admin/dashboard = "admin"
+- User role from token = "user"
+
+Result:
+→ 403 Forbidden
+
+Reason:
+User IS authenticated
+User is NOT authorized
+
+--------------------------------------------------
+5) Authorized Case (Admin User)
+
+If token role was:
+"role": "admin"
+
+Then:
+✔ Authentication passes
+✔ Authorization passes
+
+Server returns:
+200 OK
+{
+  "message": "Welcome to admin dashboard"
+}
+
+--------------------------------------------------
+Key Differences Summary
+
+Authentication:
+- Confirms identity
+- Uses passwords, tokens, certificates
+- Fails → 401 Unauthorized
+
+Authorization:
+- Checks permissions
+- Uses roles, scopes, policies
+- Fails → 403 Forbidden
+
+--------------------------------------------------
+One-Line Rule to Remember
+
+Authentication asks: "Who are you?"
+Authorization asks: "Are you allowed to do this?"
+
+You cannot authorize a user who is not authenticated.

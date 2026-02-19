@@ -1,0 +1,176 @@
+Security and Authentication in REST APIs (with Scenarios)
+
+1. HTTPS (SSL / TLS)
+   HTTPS is mandatory for secure REST APIs.
+   It encrypts all data transmitted between the client and the server,
+   preventing attackers from reading or modifying requests and responses.
+   It also ensures the server’s identity using digital certificates.
+
+   Scenario:
+   A user logs in from a coffee shop Wi-Fi.
+   Without HTTPS, the username and password could be captured by an attacker.
+   With HTTPS, even if traffic is intercepted, the data is unreadable.
+
+--------------------------------------------------
+
+2. API Keys
+   API keys are unique identifiers issued to clients.
+   They are sent with each request (usually in headers or query params).
+   API keys identify the client but do NOT authenticate a user.
+   If exposed, anyone can use the key, so they must be protected and rotated.
+
+   Scenario:
+   A weather mobile app calls a weather API.
+   The API key identifies the app, not the end user.
+   If the key leaks on GitHub, attackers can make unlimited requests
+   pretending to be that app.
+
+--------------------------------------------------
+
+3. Basic Authentication
+   Uses a username and password encoded in Base64.
+   Credentials are sent with every request.
+   Base64 is not encryption, only encoding, so HTTPS is required.
+   Simple but insecure for modern applications and rarely used in production.
+
+   Scenario:
+   A developer tool accesses an internal API.
+   Each request sends:
+   Authorization: Basic dXNlcjpwYXNz
+   If HTTPS is removed, anyone sniffing traffic can decode credentials.
+
+--------------------------------------------------
+
+4. Bearer Token Authentication
+   The client sends a token in the Authorization header:
+   "Authorization: Bearer <token>"
+   The server validates the token to authenticate the request.
+   Tokens can expire and be revoked, improving security over Basic Auth.
+
+   Scenario:
+   User logs in once and receives a token.
+   The token is sent with every request.
+   If the token expires, the user must log in again.
+   If the token is stolen, the attacker can act as the user until it expires.
+
+--------------------------------------------------
+
+5. OAuth 2.0
+   OAuth 2.0 is an authorization framework, not an authentication protocol.
+   It allows users to grant limited access to their resources without
+   sharing passwords.
+   Common flows include Authorization Code and Client Credentials.
+   Widely used by large platforms and third-party integrations.
+
+   Scenario:
+   You click "Login with Google".
+   The app never sees your Google password.
+   Google asks: "Allow this app to access your email?"
+   If you approve, the app gets a token with limited permissions.
+
+--------------------------------------------------
+
+6. JWT (JSON Web Tokens)
+   JWTs are compact, self-contained tokens containing user claims.
+   They are digitally signed to prevent tampering.
+   Because JWTs are stateless, the server does not need to store sessions.
+   Commonly used with OAuth 2.0 and Bearer authentication.
+
+   Scenario:
+   A JWT contains:
+   - user_id
+   - role
+   - expiration time
+   The server verifies the signature and trusts the data.
+   No database lookup is required for each request.
+
+--------------------------------------------------
+
+7. HMAC Authentication
+   Each request is signed using a secret key and a hashing algorithm.
+   The server recalculates the signature to verify authenticity.
+   Protects against request tampering and replay attacks.
+   Often used in banking and enterprise APIs.
+
+   Scenario:
+   A payment request includes:
+   - request body
+   - timestamp
+   - HMAC signature
+   If an attacker modifies the amount, the signature becomes invalid
+   and the request is rejected.
+
+--------------------------------------------------
+
+8. Session-Based Authentication
+   After login, the server creates a session and stores it.
+   The client sends a session ID (usually via cookies).
+   Stateful and not ideal for scalable REST APIs.
+   More common in traditional web applications than APIs.
+
+   Scenario:
+   User logs in to a website.
+   Server creates a session in memory or Redis.
+   Every request sends a session cookie.
+   If the server restarts, the session may be lost.
+
+--------------------------------------------------
+
+9. IP Whitelisting
+   The server only accepts requests from approved IP addresses.
+   Adds an extra security layer but does not replace authentication.
+   Limited flexibility for mobile and dynamic IP environments.
+
+   Scenario:
+   A company allows API access only from office IPs.
+   Requests from unknown IPs are blocked even with valid credentials.
+
+--------------------------------------------------
+
+10. CORS (Cross-Origin Resource Sharing)
+    CORS controls which origins (domains) can access the API from browsers.
+    It prevents malicious websites from making unauthorized requests.
+    CORS is a browser security feature, not server-side authentication.
+
+    Scenario:
+    A malicious website tries to call your API using a user’s browser.
+    The browser blocks the request because the origin is not allowed.
+    The API itself is still reachable by tools like Postman.
+
+--------------------------------------------------
+
+11. Rate Limiting & Throttling
+    Limits how many requests a client can make in a given time window.
+    Prevents abuse, brute-force attacks, and denial-of-service attempts.
+    Often implemented per IP, API key, or user.
+
+    Scenario:
+    Login endpoint allows 5 requests per minute.
+    An attacker trying 1000 passwords gets blocked after 5 attempts.
+
+--------------------------------------------------
+
+12. Role-Based Access Control (RBAC)
+    RBAC defines what actions a user can perform.
+    Users are assigned roles, and roles have permissions.
+    Even authenticated users cannot access unauthorized resources.
+    Ensures proper authorization after authentication.
+
+    Scenario:
+    - Admin can delete users
+    - Editor can edit content
+    - Viewer can only read
+    Even if a viewer is logged in, delete requests are denied.
+
+--------------------------------------------------
+
+Final Summary:
+
+Authentication answers: "Who are you?"
+Authorization answers: "What are you allowed to do?"
+
+A secure REST API typically combines:
+- HTTPS for transport security
+- Tokens (JWT/OAuth) for authentication
+- RBAC for authorization
+- Rate limiting and monitoring for protection

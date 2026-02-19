@@ -1,0 +1,60 @@
+SSL (Secure Sockets Layer)
+
+SSL is a security technology used to encrypt data sent between a client
+(such as a web browser) and a server. Its main purpose is to ensure that
+data transferred over the internet remains private, secure, and unchanged.
+
+--------------------------------------------------
+
+Problem SSL Solves
+
+Without SSL:
+- Data is transmitted in plain text
+- Attackers can intercept the communication
+- Sensitive information (passwords, credit cards) can be stolen
+- Data can be modified in transit (Man-in-the-Middle attacks)
+
+With SSL:
+- Data is encrypted
+- Interception becomes useless to attackers
+
+--------------------------------------------------
+
+How SSL Works (Simplified)
+
+1. Client connects to a secure server (HTTPS)
+2. Server sends its SSL certificate
+3. Client verifies the certificate using a trusted Certificate Authority
+4. A secure key exchange happens
+5. Encrypted communication begins
+
+--------------------------------------------------
+
+What SSL Provides
+
+- Encryption      ->  Protects data confidentiality
+- Authentication  ->  Verifies server identity
+- Data Integrity  ->  Prevents data tampering
+
+--------------------------------------------------
+
+SSL vs TLS
+
+- SSL is deprecated
+- TLS (Transport Layer Security) is the modern and secure replacement
+- The term "SSL" is still commonly used
+
+--------------------------------------------------
+
+How to Identify SSL
+
+- URL starts with https://
+- Padlock icon appears in the browser
+
+--------------------------------------------------
+
+Summary
+
+SSL secures communication between client and server by encrypting data,
+preventing eavesdropping, tampering, and impersonation.
+Modern systems use TLS instead of SSL.
