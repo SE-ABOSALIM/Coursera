@@ -1,7 +1,13 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Food, MenuItem
-from .serializers import FoodsSerializer, FoodsFilteredSerializer, MenuItemSerializer
+from rest_framework.generics import get_object_or_404
+from .models import Food, MenuItem, Category
+from .serializers import ( 
+    FoodsSerializer, 
+    FoodsFilteredSerializer, 
+    MenuItemSerializer, 
+    CategorySerializer 
+)
 
 # Standart way
 @api_view(['GET'])
@@ -41,7 +47,7 @@ def foods_menu_item_filtered(request, pk):
 @api_view(['GET'])
 def menu_items(request):
     items = MenuItem.objects.select_related('category').all()
-    serialized_items = MenuItemSerializer(items, many=True)
+    serialized_items = MenuItemSerializer(items, many=True, context={'request': request})
     return Response(serialized_items.data)
 
 @api_view(['GET'])
@@ -49,3 +55,9 @@ def single_menu_item(request, pk):
     item = MenuItem.objects.get(pk=pk)
     serialized_item = MenuItemSerializer(item)
     return Response(serialized_item.data)
+
+@api_view()
+def category_detail(request, pk):
+    category = get_object_or_404(Category, pk=pk)
+    serialized_category = CategorySerializer(category)
+    return Response(serialized_category.data)

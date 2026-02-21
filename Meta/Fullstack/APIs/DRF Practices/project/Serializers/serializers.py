@@ -28,10 +28,14 @@ class CategorySerializer(serializers.ModelSerializer):
 class MenuItemSerializer(serializers.ModelSerializer):
     stock = serializers.IntegerField(source='inventory')
     calculated_tax = serializers.SerializerMethodField()
-    category = CategorySerializer() # Convert the Category model to Json to display it in api view (reslitionship serializer)
+    category = serializers.HyperlinkedRelatedField (
+        queryset = Category.objects.all(),
+        view_name='category-detail',
+    )
     class Meta:
         model = MenuItem
         fields = ['id', 'title', 'price', 'stock',  'calculated_tax', 'category']
+        # depth=1 # same as (category = CategorySerializer()). This way you don't need the CategorySerializer
 
     def get_calculated_tax(self, product:MenuItem):
         taxed_price = product.price * Decimal('1.10')
