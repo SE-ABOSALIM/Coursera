@@ -25,9 +25,10 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = ['id', 'slug', 'title']
 
-class MenuItemSerializer(serializers.ModelSerializer):
+class MenuItemSerializer(serializers.ModelSerializer): # PASS HERE
     stock = serializers.IntegerField(source='inventory')
     calculated_tax = serializers.SerializerMethodField()
+    # This part creates a hyperlink refers to name='category-detail' named url. Instead of that, it could be done by passing (serializers.HyperlinkedModelSerializer) to "PASS HERE"
     category = serializers.HyperlinkedRelatedField (
         queryset = Category.objects.all(),
         view_name='category-detail',

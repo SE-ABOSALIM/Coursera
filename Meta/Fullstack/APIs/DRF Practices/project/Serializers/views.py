@@ -47,7 +47,7 @@ def foods_menu_item_filtered(request, pk):
 @api_view(['GET'])
 def menu_items(request):
     items = MenuItem.objects.select_related('category').all()
-    serialized_items = MenuItemSerializer(items, many=True, context={'request': request})
+    serialized_items = MenuItemSerializer(items, many=True, context={'request': request}) # we need to provide the context so DRF could extract url field like (port, host, scheme, etc.) from the request object
     return Response(serialized_items.data)
 
 @api_view(['GET'])
