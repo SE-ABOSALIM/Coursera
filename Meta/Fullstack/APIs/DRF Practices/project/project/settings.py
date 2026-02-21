@@ -125,3 +125,12 @@ STATIC_URL = 'static/'
 INTERNAL_IPS = [
     '127.0.0.1'
 ]
+
+# Custom renderers with different response data types
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer', # normal JSON format
+        'rest_framework.renderers.BrowsableAPIRenderer', # Browsable JSON view page
+        'rest_framework_xml.renderers.XMLRenderer', # for XML rendering
+    ]
+}
