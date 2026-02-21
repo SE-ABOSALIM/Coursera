@@ -33,6 +33,7 @@ class MenuItemSerializer(serializers.ModelSerializer): # PASS HERE
         queryset = Category.objects.all(),
         view_name='category-detail',
     )
+    # category = CategorySerializer(read_only=True) # uncomment to perform post request in api/menu-items and cpmment the above one
     class Meta:
         model = MenuItem
         fields = ['id', 'title', 'price', 'stock',  'calculated_tax', 'category']

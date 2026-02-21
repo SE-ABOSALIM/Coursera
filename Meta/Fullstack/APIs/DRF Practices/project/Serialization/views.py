@@ -1,6 +1,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.generics import get_object_or_404
+from rest_framework import status
 from .models import Food, MenuItem, Category
 from .serializers import ( 
     FoodsSerializer, 
@@ -44,11 +45,18 @@ def foods_menu_item_filtered(request, pk):
 
 # ----------------------------------------------------------------------------------
 
-@api_view(['GET'])
+@api_view(['GET', 'POST'])
 def menu_items(request):
-    items = MenuItem.objects.select_related('category').all()
-    serialized_items = MenuItemSerializer(items, many=True, context={'request': request}) # we need to provide the context so DRF could extract url field like (port, host, scheme, etc.) from the request object
-    return Response(serialized_items.data)
+    if request.method == 'GET':
+        items = MenuItem.objects.select_related('category').all()
+        serialized_items = MenuItemSerializer(items, many=True, context={'request': request}) # we need to provide the context so DRF could extract url field like (port, host, scheme, etc.) from the request object
+        return Response(serialized_items.data)
+    # To make that work go to serializers.py in the MenuItemSerializer class comment the first category variable and uncomment the second
+    if request.method == 'POST':
+        serialized_item = MenuItemSerializer(data=request.data)
+        serialized_item.is_valid(raise_exception=True)
+        serialized_item.save()
+        return Response(serialized_item.data, status.HTTP_201_CREATED)
 
 @api_view(['GET'])
 def single_menu_item(request, pk):

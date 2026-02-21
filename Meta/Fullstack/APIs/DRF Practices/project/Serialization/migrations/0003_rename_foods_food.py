@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('Serializers', '0002_category_menuitem'),
+        ('Serialization', '0002_category_menuitem'),
     ]
 
     operations = [

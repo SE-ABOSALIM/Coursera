@@ -6,5 +6,5 @@ urlpatterns = [
     path('__debug__/', include('debug_toolbar.urls')),
     path('api/', include('BookListAPI.urls')), 
     path('api/', include('SimpleAPIPractice.urls')), # serializers with helper APIView and class-based views, simple API Project
-    path('api/', include('Serializers.urls')), # serializers and filtered serializers
+    path('api/', include('Serialization.urls')), # serializers and filtered serializers
 ]
