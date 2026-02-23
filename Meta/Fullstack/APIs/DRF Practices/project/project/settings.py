@@ -38,10 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'debug_toolbar',
     'BookListAPI',
     'SimpleAPIPractice',
     'Serialization',
+    'APISecurity',
 ]
 
 MIDDLEWARE = [
@@ -132,5 +134,16 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer', # normal JSON format
         'rest_framework.renderers.BrowsableAPIRenderer', # Browsable JSON view page
         'rest_framework_xml.renderers.XMLRenderer', # for XML rendering
-    ]
+    ],
+
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+
+    
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '5/minute', # This will allow the unauthenticated users to access the API endpoint 5 times per minute
+        'user': '10/minute', # This will allow the authenticated users to access the API endpoint 10 times per minute
+        'twenty': '20/minute',
+    }
 }
