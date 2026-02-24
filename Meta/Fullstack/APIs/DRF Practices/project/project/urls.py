@@ -13,6 +13,7 @@ urlpatterns = [
     path('api/', include('SimpleAPIPractice.urls')), # serializers with helper APIView and class-based views, simple API Project
     path('api/', include('Serialization.urls')), # Filtering | Ordering | Searching | Pagination and validators
     path('api/', include('APISecurity.urls')), # API endpoints Security: authentication, authorization and throttling
+    path('api/', include('UserAccManagement.urls')),
 
     # Djoser Authentication ---------------------------------------------------------------------------------------------------
     path('auth/', include('djoser.urls')),

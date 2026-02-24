@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'SimpleAPIPractice',
     'Serialization',
     'APISecurity',
+    'UserAccManagement',
 ]
 
 MIDDLEWARE = [
