@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'djoser',
+    'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
     'debug_toolbar',
     'BookListAPI',
     'SimpleAPIPractice',
@@ -128,22 +131,29 @@ INTERNAL_IPS = [
     '127.0.0.1'
 ]
 
-# Custom renderers with different response data types
 REST_FRAMEWORK = {
+    # Custom renderers with different response types
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer', # normal JSON format
         'rest_framework.renderers.BrowsableAPIRenderer', # Browsable JSON view page
         'rest_framework_xml.renderers.XMLRenderer', # for XML rendering
     ],
 
+    # Token authentication
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ),
 
-    
+    # Throttling for anonymous and authenticated users
     'DEFAULT_THROTTLE_RATES': {
         'anon': '5/minute', # This will allow the unauthenticated users to access the API endpoint 5 times per minute
         'user': '10/minute', # This will allow the authenticated users to access the API endpoint 10 times per minute
-        'twenty': '20/minute',
+        'twenty': '20/minute', # Custom throttling for authenticated users
     }
+}
+
+DJOSER = {
+    "USER_ID_FIELD": "username"
 }

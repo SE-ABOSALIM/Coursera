@@ -1,11 +1,20 @@
+from django.contrib.auth.models import User, Group
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.generics import get_object_or_404
 from rest_framework.decorators import ( 
     api_view, 
     permission_classes, 
     throttle_classes,
 )
-from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.throttling import AnonRateThrottle, UserRateThrottle
+from rest_framework.permissions import (
+    IsAuthenticated, 
+    IsAdminUser,
+)
+from rest_framework.throttling import (
+    AnonRateThrottle, 
+    UserRateThrottle,
+)
 from .throttles import TwentyCallsPerMinute
 
 # Authentication and Authorization ----------------------------------------------------------------------------------------
@@ -16,7 +25,7 @@ from .throttles import TwentyCallsPerMinute
 def secret(request):
     return Response({'message': 'Some secret message'})
 
-# Authorization
+# Manager Group Authorization
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def manager_view(request):
@@ -24,10 +33,19 @@ def manager_view(request):
         return Response({'message': 'Only manager should see this message'})
     else:
         return Response({'message': 'Authorization required for this area'}, 403)
+
+# Admin Authorization
+@api_view(['GET'])
+@permission_classes([IsAdminUser])
+def admins(request):
+    username = request.data['username']
+    if username:
+        user = get_object_or_404(User, username=username)
+        admins = Group.objects.get(name="Admin")
+        admins.user_set.add(user)
+        return Response({'message': 'Hi Admin!'})
     
-# ------------------------------------------------------------------------------------------------------------------------
-
-
+    return Response({'message': 'Error'}, status.HTTP_400_BAD_REQUEST)
 
 # Throttling -------------------------------------------------------------------------------------------------------------
 
