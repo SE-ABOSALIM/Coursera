@@ -4,21 +4,7 @@ from .models import Food, MenuItem, Category
 from decimal import Decimal
 import bleach
 
-class FoodsSerializer(serializers.ModelSerializer):
-    country = serializers.CharField(source='origin')
-    calculated_tax = serializers.SerializerMethodField()
-    class Meta:
-        model = Food
-        fields = ['id', 'name', 'country', 'price', 'calculated_tax']
-
-    def get_calculated_tax(self, product:Food):
-        taxed_price = product.price * Decimal('1.10')
-        return taxed_price.quantize(Decimal('0.00'))
-
-class FoodsFilteredSerializer(serializers.Serializer):
-    id = serializers.IntegerField()
-    name = serializers.CharField(max_length=100)
-
+# REMEMBER TO RETURN THIS PLACE FROM THE BOTTOM OF THE PAGE
 # ----------------------------------------------------------------------------------
 
 # Relationship Serializer
@@ -95,3 +81,21 @@ class MenuItemSerializer(serializers.ModelSerializer): # PASS HERE
     """
     def validate_title(self, value):
         return bleach.clean(value)
+
+
+
+
+class FoodsSerializer(serializers.ModelSerializer):
+    country = serializers.CharField(source='origin')
+    calculated_tax = serializers.SerializerMethodField()
+    class Meta:
+        model = Food
+        fields = ['id', 'name', 'country', 'price', 'calculated_tax']
+
+    def get_calculated_tax(self, product:Food):
+        taxed_price = product.price * Decimal('1.10')
+        return taxed_price.quantize(Decimal('0.00'))
+
+class FoodsFilteredSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    name = serializers.CharField(max_length=100)
