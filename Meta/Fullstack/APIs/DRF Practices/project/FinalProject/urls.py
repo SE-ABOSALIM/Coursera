@@ -3,12 +3,12 @@ from . import views
 
 urlpatterns = [
     path('menu-items', views.menu_items, name='menu-items'),
-    path('menu-items/<int:pk>', views.single_menu_items, name='menu-items-detail'),
+    path('menu-items/<int:pk>', views.menu_item_details, name='menu-items-detail'),
 
     # path('orders'),
     # path('orders/<int:id>'),
-
-    # path('groups/<str:group_name>/users'),
-    # path('groups/<str:group_name>/users/<int:id>'),
     # path('cart/menu-items'),
+
+    path('groups/<str:group_name>/users', views.group_users),
+    path('groups/<str:group_name>/users/<int:id>', views.group_user_detail),
 ]
