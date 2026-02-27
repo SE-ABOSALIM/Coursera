@@ -1,0 +1,144 @@
+ACCESS TOKEN
+A short-lived token sent with every API request to prove that the user is authenticated and allowed to access protected resources.
+
+REFRESH TOKEN
+A long-lived token used only to obtain a new access token when the current access token expires, without requiring the user to log in again.
+
+================================
+WHAT IS JWT?
+================================
+JWT (JSON Web Token) is a way for a server to recognize a user
+WITHOUT storing the user’s session.
+
+Instead of the server saying:
+“I will remember you”
+
+The server says:
+“Here, take this signed token.
+Bring it with you every time you come back.”
+
+The token:
+- Proves who you are
+- Cannot be changed
+- Expires after some time
+- Is checked on every request
+
+The server stays stateless.
+No sessions. No memory of users.
+
+
+
+
+
+REAL-WORLD JWT AUTHENTICATION FLOW
+
+Two tokens are used:
+1) ACCESS TOKEN
+- Short-lived (5–15 minutes)
+- Sent with every API request
+- Used to access protected resources
+
+2) REFRESH TOKEN
+- Long-lived (1–4 weeks)
+- Used only to obtain a new access token
+- Stored securely
+
+FLOW:
+Step 1: User logs in once
+- Username and password are sent
+- Server verifies credentials
+- Server returns:
+  - Access Token
+  - Refresh Token
+
+Step 2: Normal usage
+- Client sends Access Token with each request
+- Server validates the token
+- Request is allowed
+
+Step 3: Access Token expires
+- This is expected
+- User is not logged out
+- Client sends Refresh Token to the server
+
+Step 4: Token refresh
+- Server validates Refresh Token
+- If valid, a new Access Token is issued
+- User does not notice anything
+
+WHEN DOES THE USER NEED TO LOG IN AGAIN?
+
+- Refresh Token expires
+- User logs out
+- Security issue occurs (token revoked, password change, suspicious activity)
+
+SUMMARY:
+Access Tokens are short-lived for security  
+Refresh Tokens keep the user logged in without re-entering credentials
+
+
+
+
+
+
+
+
+
+User logs in → refresh token is generated
+From this point on, what happens EVERY time the user visits the site / refreshes a page is:
+
+1) User opens the site (page load / refresh)
+
+The browser automatically does the following:
+- Sends the existing access token
+- Usually inside the HTTP Authorization header
+
+Important:
+- The refresh token is NOT sent with normal requests
+
+2) Server checks the access token
+
+Case A: Access token is still valid
+- Token is verified
+- “This user is authenticated”
+- Page / data is returned
+- No extra action is taken
+
+Case B: Access token has EXPIRED
+- This is completely normal
+- Server responds:
+  “Access token has expired”
+
+3) Automatic refresh (background process)
+
+The browser / frontend:
+- Takes the refresh token
+- Silently sends it to the refresh endpoint
+
+The server:
+- Validates the refresh token
+- If valid:
+  - Generates a new access token
+  - Sends it back
+
+Result:
+- Page loads normally
+- User does not notice anything
+
+4) When does the user get logged out?
+
+Only if:
+- The refresh token expires
+- The user clicks logout
+- A security issue occurs
+
+Then:
+- A new access token cannot be issued
+- The user is redirected to the login screen
+	
+IMPORTANT POINT (🔥)
+- The refresh token is NOT used on every request
+- The refresh token is used:
+  - Only when the access token expires
+  - Only for token renewal
+  - Very rarely

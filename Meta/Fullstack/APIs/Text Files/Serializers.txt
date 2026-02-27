@@ -1,3 +1,3 @@
-No problem at all! It sounds like we need to clarify the role of serializers a bit more. Serializers in Django REST Framework essentially act as a translator. They take your complex Django model instances (like a Book object) and convert them into Python data types that can then be easily rendered into JSON or XML.
+Serializers in Django REST Framework essentially act as a translator. They take your complex Django model instances (like a Book object) and convert them into Python data types that can then be easily rendered into JSON or XML.
 
 So, to ensure your API consistently returns JSON, you would define a serializer for your Book model. This serializer specifies which fields from your Book model should be included in the JSON response and how they should be formatted.
