@@ -1,4 +1,6 @@
 from django.contrib.auth.models import User, Group
+from django.db import transaction
+from django.utils import timezone
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.generics import get_object_or_404
@@ -24,6 +26,7 @@ from .models import (
     MenuItem,
     Cart,
     Order,
+    OrderItem,
 )
 from .serializers import (
     MenuItemSerializer,
@@ -56,7 +59,7 @@ class DummyView:
 
 def apply_filters_and_pagination(request, queryset, serializer_class,
                                  filter_fields=None, search_fields=None, ordering_fields=None):
-    view = DummyView()  # DRF filter backends require a view object
+    view = DummyView() 
 
     # Filtering
     if filter_fields:
@@ -103,7 +106,7 @@ def menu_items(request):
         serialized_item = MenuItemSerializer(data=request.data)
         serialized_item.is_valid(raise_exception=True)
         serialized_item.save()
-        return Response(serialized_item, status.HTTP_201_CREATED)
+        return Response(serialized_item.data, status=status.HTTP_201_CREATED)
 
 
 
@@ -204,9 +207,9 @@ def user_cart(request):
 @permission_classes([IsAuthenticated])
 def orders(request):
     
-    if request.method == 'GET':
-        user = request.user
+    user = request.user
 
+    if request.method == 'GET':
         if user.groups.filter(name='FP-Manager').exists():
             queryset = Order.objects.all()
         elif user.groups.filter(name='FP-delivery-crew').exists():
@@ -218,4 +221,88 @@ def orders(request):
         return Response(serializer.data, status=status.HTTP_200_OK)
     
     if request.method == 'POST':
-        pass
+        cart_items = Cart.objects.filter(user=user)
+
+        if not cart_items.exists():
+            return Response(
+                {"detail": "Cart is empty. Cannot create order."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        with transaction.atomic():
+            order = Order.objects.create(
+                user=user,
+                status=False,
+                total=0,
+                date=timezone.now().date(),
+                delivery_crew=None
+            )
+
+            total_price = 0
+
+            for item in cart_items:
+                OrderItem.objects.create(
+                    order=order,
+                    menuitem=item.menuitem,
+                    quantity=item.quantity,
+                    unit_price=item.unit_price,
+                    final_price=item.final_price
+                )
+                total_price += item.final_price
+
+            order.total = total_price
+            order.save()
+
+            cart_items.delete()
+
+        serializer = OrderSerializer(order)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
+@api_view(['GET', 'PUT', 'PATCH', 'DELETE'])
+@permission_classes([IsAuthenticated])
+def order_details(request, pk):
+
+    order = get_object_or_404(Order, pk=pk)
+    user = request.user
+
+    is_manager = user.groups.filter(name='FP-Manager').exists()
+    is_delivery = user.groups.filter(name='FP-delivery-crew').exists()
+
+    if request.method == 'GET':
+        if order.user != user and not is_manager and not is_delivery:
+            return Response(status=status.HTTP_403_FORBIDDEN)
+
+        serializer = OrderSerializer(order)
+        return Response(serializer.data)
+
+    if request.method in ['PUT', 'PATCH']:
+        if is_manager:
+            serializer = OrderSerializer(order, data=request.data, partial=True)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors, status=400)
+
+        elif is_delivery:
+            if order.delivery_crew != user:
+                return Response(status=status.HTTP_403_FORBIDDEN)
+
+            if 'status' not in request.data:
+                return Response(
+                    {"detail": "You can only update status."},
+                    status=400
+                )
+
+            order.status = request.data['status']
+            order.save()
+
+            return Response(OrderSerializer(order).data)
+
+        return Response(status=status.HTTP_403_FORBIDDEN)
+
+    if request.method == 'DELETE':
+        if not is_manager:
+            return Response(status=status.HTTP_403_FORBIDDEN)
+
+        order.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

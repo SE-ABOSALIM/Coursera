@@ -7,7 +7,7 @@ urlpatterns = [
 
     # path('orders'),
     # path('orders/<int:id>'),
-    # path('cart/menu-items'),
+    path('cart/menu-items', views.user_cart),
 
     path('groups/<str:group_name>/users', views.group_users),
     path('groups/<str:group_name>/users/<int:id>', views.group_user_detail),
