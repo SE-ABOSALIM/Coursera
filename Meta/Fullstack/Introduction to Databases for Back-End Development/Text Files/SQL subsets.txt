@@ -1,0 +1,46 @@
+SQL (Structured Query Language) Sub-languages
+
+SQL is a standard language used to interact with relational databases.
+It is divided into several sub-languages based on their purpose.
+
+--------------------------------------------------
+
+DDL - Data Definition Language
+Used to define and modify the structure of the database.
+It is responsible for creating, altering, and deleting database objects
+such as tables, schemas, and indexes.
+
+Examples:
+CREATE TABLE
+ALTER TABLE
+DROP TABLE
+
+--------------------------------------------------
+
+DML - Data Manipulation Language
+Used to manage the data stored inside database tables.
+It allows inserting new data, updating existing data, and deleting data.
+
+Examples:
+INSERT
+UPDATE
+DELETE
+
+--------------------------------------------------
+
+DQL - Data Query Language
+Used to retrieve data from the database.
+In practice, it mainly consists of the SELECT statement.
+
+Examples:
+SELECT
+
+--------------------------------------------------
+
+DCL - Data Control Language
+Used to control access to data in the database.
+It manages permissions, roles, and security.
+
+Examples:
+GRANT
+REVOKE
