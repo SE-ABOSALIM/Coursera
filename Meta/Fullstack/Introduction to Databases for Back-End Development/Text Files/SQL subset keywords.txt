@@ -1,0 +1,94 @@
+================================================
+DDL (Data Definition Language)
+Used to define and modify database structure
+================================================
+CREATE        Creates database objects (TABLE, DATABASE, VIEW, INDEX, etc.)
+ALTER         Modifies existing database objects
+DROP          Deletes database objects permanently
+TRUNCATE      Removes all records from a table quickly
+RENAME        Renames a database object
+COMMENT       Adds comments to database objects
+
+PRIMARY KEY   Uniquely identifies each record in a table
+FOREIGN KEY   Defines a relationship between two tables
+REFERENCES    Specifies referenced table/column for foreign key
+UNIQUE        Ensures all values in a column are unique
+NOT NULL      Prevents NULL values in a column
+DEFAULT       Sets a default value for a column
+CHECK         Ensures values meet a specific condition
+CONSTRAINT    Defines rules for data integrity
+INDEX         Improves data retrieval performance
+VIEW          Creates a virtual table
+
+
+================================================
+DML (Data Manipulation Language)
+Used to modify data inside tables
+================================================
+INSERT        Adds new records into a table
+INTO          Specifies the table for insertion
+VALUES        Provides values to insert
+UPDATE        Modifies existing records
+SET           Specifies column values to update
+DELETE        Removes records from a table
+MERGE         Combines INSERT and UPDATE logic (in some DB systems)
+
+
+================================================
+DQL (Data Query Language)
+Used to retrieve data
+================================================
+SELECT        Retrieves data from a table
+DISTINCT      Returns only unique values
+FROM          Specifies table source
+WHERE         Filters records
+ORDER BY      Sorts results
+GROUP BY      Groups rows
+HAVING        Filters grouped results
+LIMIT         Limits number of rows returned
+OFFSET        Skips specified rows
+
+JOIN          Combines tables
+INNER JOIN    Returns matching rows from both tables
+LEFT JOIN     Returns all rows from left table
+RIGHT JOIN    Returns all rows from right table
+FULL JOIN     Returns all matching rows from both tables
+ON            Specifies join condition
+
+IN            Matches any value in a list
+BETWEEN       Filters within a range
+LIKE          Pattern matching
+EXISTS        Tests existence of subquery results
+UNION         Combines result sets (removes duplicates)
+UNION ALL     Combines result sets (keeps duplicates)
+
+COUNT         Returns number of rows
+SUM           Returns total sum
+AVG           Returns average value
+MIN           Returns minimum value
+MAX           Returns maximum value
+
+CASE          Conditional logic in queries
+WHEN          Condition in CASE
+THEN          Result if condition is true
+ELSE          Default result
+END           Ends CASE statement
+
+
+================================================
+DCL (Data Control Language)
+Used for access control and permissions
+================================================
+GRANT         Gives privileges to users
+REVOKE        Removes privileges from users
+
+
+================================================
+TCL (Transaction Control Language)
+Used to manage transactions
+================================================
+COMMIT        Saves transaction permanently
+ROLLBACK      Reverts transaction
+SAVEPOINT     Sets a rollback point
+TRANSACTION   Defines a transaction block
+SET TRANSACTION   Sets transaction properties

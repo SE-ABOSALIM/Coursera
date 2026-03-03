@@ -44,3 +44,16 @@ It manages permissions, roles, and security.
 Examples:
 GRANT
 REVOKE
+
+--------------------------------------------------
+
+TCL - Transaction Control Language
+Used to manage transactions in the database.
+It ensures that a series of SQL operations either all succeed together or fail together, maintaining data integrity.
+TCL commands are mainly used to commit, rollback, or control transactions in the database.
+
+Examples:
+COMMIT
+ROLLBACK
+SAVEPOINT
+SET TRANSACTION
