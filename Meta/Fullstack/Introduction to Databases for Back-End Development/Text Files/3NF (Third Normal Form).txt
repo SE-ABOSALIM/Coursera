@@ -35,7 +35,6 @@ Orders(OrderID, OrderDate)
 Products(ProductID, ProductName)
 OrderDetails(OrderID, ProductID)
 
-
 3) It has no transitive dependencies
 Non-key attributes must depend only on the primary key, not on other non-key attributes.
 
