@@ -1,0 +1,13 @@
+Database Schema Types
+
+1) Physical Schema
+The physical schema describes how data is physically stored on disk. It includes details such as file structures, indexes, partitions, storage allocation, and access methods. It focuses on performance and storage optimization.
+
+2) Logical Schema
+The logical schema defines the structure of the database at a conceptual level. It includes tables, columns, data types, relationships, constraints, views, and keys. It represents how data is logically organized without considering physical storage details.
+
+3) External Schema
+The external schema represents different user views of the database. It defines how specific users or applications see and access data. Multiple external schemas can exist for the same database, each tailored to particular roles or requirements.
+
+4) Conceptual Schema
+The conceptual schema provides a high-level representation of the entire database structure. It defines entities, relationships, and constraints across the system. It acts as a bridge between the logical and external schemas and represents the overall design of the database.

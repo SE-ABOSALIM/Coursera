@@ -1,0 +1,43 @@
+DATABASE COLUMN DEPENDENCY TYPES
+
+1) Functional Dependency (FD)
+A functional dependency exists when one column uniquely determines another column.
+Notation: A → B
+Meaning: If two rows have the same A value, they must have the same B value.
+
+Example:
+StudentID → StudentName
+StudentID → Email
+StudentID determines StudentName and Email.
+
+2) Full Functional Dependency
+A column is fully functionally dependent on a composite key if it depends on the whole key, not just part of it.
+
+Example:
+(EnrollmentID, CourseID) → Grade
+
+If Grade depends on both EnrollmentID and CourseID together, it is a full functional dependency.
+If it depends only on EnrollmentID, then it is a partial dependency.
+
+3) Partial Dependency
+Occurs when a non-key attribute depends only on part of a composite primary key.
+
+Example:
+Primary Key: (OrderID, ProductID)
+OrderID → OrderDate
+
+OrderDate depends only on OrderID, not the full composite key.
+This is a partial dependency and violates 2NF.
+
+4) Transitive Dependency
+Occurs when a non-key attribute depends on another non-key attribute.
+
+Example:
+StudentID → DepartmentID
+DepartmentID → DepartmentName
+
+Therefore:
+StudentID → DepartmentName (transitive dependency)
+
+DepartmentName depends on StudentID indirectly through DepartmentID.
+This violates 3NF.

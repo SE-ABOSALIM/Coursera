@@ -1,0 +1,63 @@
+THIRD NORMAL FORM (3NF)
+
+A table is in Third Normal Form if:
+
+1) It is in First Normal Form (1NF)
+All values are atomic.
+No repeating groups.
+
+Example violation:
+StudentID | Courses
+1         | Math, Physics
+
+Correct 1NF:
+StudentID | Course
+1         | Math
+1         | Physics
+
+
+2) It is in Second Normal Form (2NF)
+It is in 1NF and has no partial dependencies.
+All non-key attributes must depend on the entire primary key.
+
+Example violation:
+Primary Key: (OrderID, ProductID)
+
+OrderID | ProductID | OrderDate | ProductName
+1       | 10        | 2024-01-01 | Laptop
+
+OrderDate depends only on OrderID.
+ProductName depends only on ProductID.
+This violates 2NF.
+
+Correct decomposition:
+Orders(OrderID, OrderDate)
+Products(ProductID, ProductName)
+OrderDetails(OrderID, ProductID)
+
+
+3) It has no transitive dependencies
+Non-key attributes must depend only on the primary key, not on other non-key attributes.
+
+Example violation:
+StudentID | StudentName | DepartmentID | DepartmentName
+1         | Ali         | 10           | Computer Science
+
+StudentID → DepartmentID
+DepartmentID → DepartmentName
+
+DepartmentName depends on DepartmentID, not directly on StudentID.
+This violates 3NF.
+
+Correct decomposition:
+Students(StudentID, StudentName, DepartmentID)
+Departments(DepartmentID, DepartmentName)
+
+
+FINAL DEFINITION OF 3NF
+
+A table is in Third Normal Form if:
+Every non-key attribute depends on:
+the key,
+the whole key,
+and nothing but the key.
