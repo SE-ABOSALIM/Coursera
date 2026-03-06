@@ -1,4 +1,4 @@
-REST nedir?
+What is REST?
 REST (Representational State Transfer) is an architectural style used to design web services.
 
 

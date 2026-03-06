@@ -8,11 +8,7 @@ and JavaScript (React, Vue, etc.) handles everything after that —
 page changes, content updates, navigation — on the client side.
 
 
-
-
-
-
-What SSR Means?
+What Does SSR Mean?
 
 SSR = Server-Side Rendering:
 It means the server generates the HTML for each page before sending it to the browser.

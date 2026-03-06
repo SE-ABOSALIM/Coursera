@@ -1,4 +1,4 @@
-Security and Authentication in REST APIs (with Scenarios)
+Security and Authentication in REST APIs
 
 1. HTTPS (SSL / TLS)
    HTTPS is mandatory for secure REST APIs.

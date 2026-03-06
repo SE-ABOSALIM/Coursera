@@ -1,51 +1,40 @@
-DHCP (Dynamic Host Configuration Protocol) = Otomatik IP dağıtan sistem.
+DHCP (Dynamic Host Configuration Protocol) 
+A system that automatically distributes IP addresses.
 
-Bir cihazı (bilgisayar, telefon, TV vs.) modeme/router’a bağladığında şunlara ihtiyaç duyar:
+When you connect a device (computer, phone, TV, etc.) to a modem/router, it needs the following:
+- IP address (example: 192.168.1.25)
+- Subnet mask (example: 255.255.255.0)
+- Default gateway, which is the exit point (usually the router’s address: 192.168.1.1)
+- DNS servers (for example Google DNS: 8.8.8.8)
 
-- IP adresi (örnek: 192.168.1.25)
-
-- Subnet mask (örnek: 255.255.255.0)
-
-- Default gateway yani çıkış noktası (genelde router’ın adresi: 192.168.1.1)
-
-- DNS sunucuları (Google DNS: 8.8.8.8 gibi)
-
-Bunları tek tek elle yazmana gerek kalmasın diye DHCP devreye girer.
-
-* Cihaz bağlanınca router’a der ki: “Bana ağ ayarlarını ver.”
-
-* Router da uygun bir IP ve diğer bilgileri gönderir.
-
-* Böylece cihaz otomatik olarak internete çıkar.
+Instead of manually entering all of these one by one, DHCP handles it automatically.
+* When a device connects, it tells the router: “Give me the network settings.”
+* The router then sends an available IP address and the other required information.
+* This allows the device to automatically access the internet.
 
 
 
 
-Subnet Mask (Alt Ağ Maskesi):
+Subnet Mask
+Shows which part of an IP address represents the "network" and which part represents the "device".
 
-Bir IP adresinin hangi kısmının "ağ", hangi kısmının "cihaz" olduğunu gösterir.
-
-Ev ağlarında genelde 255.255.255.0 olur.
-Bu maske, “bir ağda en fazla 254 cihaz olabilir” demek.
-(Bir ağdaki cihazların birbirini görebilmesini sağlar.)
-
+In home networks it is usually 255.255.255.0.
+This mask means “a network can have up to 254 devices”.
+(It allows devices within the same network to see each other.)
 
 
-Default Gateway (Varsayılan Ağ Geçidi):
 
-Tüm cihazların internete çıkış kapısıdır.
+Default Gateway:
+The exit door to the internet for all devices.
 
-Genelde modem/router’ın IP’sidir (örn. 192.168.1.1).
-Sen bilgisayardan Google’a gitmek isteyince paketler önce Gateway’e gider, oradan internete çıkar.
+It is usually the IP address of the modem/router (e.g., 192.168.1.1).
+When you try to go to Google from your computer, the packets first go to the Gateway, then they exit to the internet.
 
 
 
 
 DNS (Domain Name System):
+It is the “phone book” of the internet.
 
-İnternetin “telefon rehberi”dir.
-
-Sen tarayıcıya www.youtube.com
- yazarsın → DNS bunu IP adresine çevirir (örn. 142.250.185.78).
-
-Google DNS (8.8.8.8, 8.8.4.4) veya Cloudflare DNS (1.1.1.1) gibi herkesin kullanabileceği DNS sunucuları vardır.
+You type www.youtube.com in the browser → DNS converts it into an IP address (e.g., 142.250.185.78).
+There are public DNS servers anyone can use such as Google DNS (8.8.8.8, 8.8.4.4) or Cloudflare DNS (1.1.1.1).

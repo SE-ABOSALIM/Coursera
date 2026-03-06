@@ -1,2 +1,18 @@
-WebSocket nedir?
-WebSocket, tarayıcı ile sunucu arasında sürekli açık kalan, çift yönlü (iki taraf da konuşabilir) bir bağlantıdır.
+WebSocket
+WebSocket is a communication protocol that creates a persistent connection between a client (usually a browser) and a server, allowing both sides to send data to each other at any time.
+
+Core Characteristics
+- The connection stays open after it is established
+- Communication is bidirectional (both client and server can send messages)
+- Data can be sent instantly without creating a new HTTP request
+- Reduces overhead compared to repeated HTTP requests
+
+How It Differs From HTTP
+HTTP works with a request–response model where the client sends a request and the server replies, then the connection usually closes.  
+WebSocket keeps the connection open so data can flow continuously in both directions.
+
+Common Use Cases
+- Real-time chat applications
+- Live notifications
+- Online multiplayer games
+- Real-time dashboards and stock price updates

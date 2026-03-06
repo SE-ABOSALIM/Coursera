@@ -1,63 +1,59 @@
 Unit / Component Testing
-👉 Tek tek parçalar doğru çalışıyor mu?
+👉 Do individual parts work correctly?
 
-Ne test edilir?
-Bir fonksiyon, bir sınıf, küçük bir bileşen
+What is tested?
+A single function, a class, or a small component.
 
-Örnek:
+Example:
 def add(a, b):
     return a + b
 
 Test:
 assert add(2, 3) == 5
 
-🧠 “Parça sağlam mı?”
-
+🧠 “Is the piece solid?”
 
 
 
 Integration Testing
-👉 Parçalar birlikte çalışınca sorun çıkıyor mu?
+👉 Do problems appear when parts work together?
 
-Ne test edilir?
-Modüller / servisler arası etkileşim
+What is tested?
+Interactions between modules or services.
 
-Örnek:
-Kullanıcı kayıt fonksiyonu
-Veritabanına gerçekten kayıt yapıyor mu?
-API → DB akışı doğru mu?
+Example:
+User registration function.
+Does it actually save the user to the database?
+Is the API → database flow working correctly?
 
-🧠 “Parçalar birbirini doğru anlıyor mu?”
-
+🧠 “Do the parts understand each other correctly?”
 
 
 
 System Testing
-👉 Tüm sistem bir bütün olarak çalışıyor mu?
+👉 Does the entire system work as a whole?
 
-Ne test edilir?
-Uygulamanın tamamı (frontend + backend + DB)
+What is tested?
+The complete application (frontend + backend + database).
 
-Örnek:
-Kullanıcı siteye giriyor
-Kayıt oluyor
-Giriş yapıyor
-Profilini görüyor
+Example:
+A user enters the site.
+Registers.
+Logs in.
+Sees their profile.
 
-🧠 “Ürün komple çalışıyor mu?”
-
-
+🧠 “Does the product work completely?”
 
 
 
 Acceptance Testing
-👉 Müşteri bunu kabul eder mi? İstediği bu mu?
+👉 Will the customer accept it? Is this what they wanted?
 
-Ne test edilir?
-İş gereksinimleri (requirements)
+What is tested?
+Business requirements.
 
-Örnek:
-“Kullanıcı 3 saniyede giriş yapabilmeli”
-“Sipariş tamamlandı mesajı görünmeli”
+Example:
+“The user should be able to log in within 3 seconds.”
+“An order completed message should appear.”
 
-🧠 “Müşteri ‘tamam bu olmuş’ der mi?”
+🧠 “Will the customer say ‘yes, this is correct’?”

@@ -1,2 +1,74 @@
-TCP is used for data that must arrive correctly and in order like text and images. 
-UDP is used for sending data that can tolerate data loss like voice calls or live video streaming.
+TCP (Transmission Control Protocol)
+TCP is a connection-oriented transport protocol designed to reliably send data across a network.
+
+Core Characteristics
+- Establishes a connection before sending data
+- Guarantees delivery of packets
+- Ensures packets arrive in the correct order
+- Detects and retransmits lost packets
+- Uses acknowledgments and error checking
+
+How It Works
+1. A connection is established using a process called the TCP three-way handshake.
+2. Data is broken into small packets.
+3. Each packet is sent and acknowledged by the receiver.
+4. If a packet is lost, TCP retransmits it.
+5. Packets are reassembled in the correct order at the destination.
+
+Advantages
+- Reliable data delivery
+- Correct ordering of packets
+- Error detection and correction
+- Suitable for data where accuracy is critical
+
+Disadvantages
+- Slower than UDP due to overhead
+- Requires more network resources
+- Higher latency because of acknowledgments and retransmissions
+
+Common Use Cases
+- Web browsing (HTTP / HTTPS)
+- File transfers (FTP)
+- Emails (SMTP, IMAP, POP3)
+- APIs and database communication
+
+Summary
+TCP is used for data that must arrive correctly and in order, such as text, files, images, and web pages.
+
+
+
+UDP (User Datagram Protocol)
+UDP is a connectionless transport protocol designed for fast data transmission without guaranteeing delivery.
+
+Core Characteristics
+- No connection establishment
+- Sends packets called datagrams
+- No guarantee of delivery
+- No guarantee of order
+- No retransmission of lost packets
+
+How It Works
+1. Data is divided into packets.
+2. Packets are sent directly to the destination without checking if they arrive.
+3. The receiver processes whatever packets are received.
+
+Advantages
+- Very fast transmission
+- Low latency
+- Minimal overhead
+- Efficient for real-time communication
+
+Disadvantages
+- Packets may be lost
+- Packets may arrive out of order
+- No built-in error recovery
+
+Common Use Cases
+- Voice over IP (VoIP)
+- Live video streaming
+- Online multiplayer games
+- DNS queries
+- Real-time data broadcasting
+
+Summary
+UDP is used for sending data where speed is more important than perfect accuracy, such as voice calls, live video, and online gaming.

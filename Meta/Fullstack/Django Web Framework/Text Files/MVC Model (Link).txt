@@ -1,1 +1,0 @@
-https://www.coursera.org/learn/django-web-framework/supplement/hpwXW/mvt-overview
