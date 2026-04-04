@@ -1,0 +1,38 @@
+node_id,country_name,country_code,continent,lat,lon
+0,Canada,CA,North America,56.1304,-106.3468
+1,United States,US,North America,37.0902,-95.7129
+2,Mexico,MX,North America,23.6345,-102.5528
+3,Brazil,BR,South America,-14.2350,-51.9253
+4,Argentina,AR,South America,-38.4161,-63.6167
+5,Chile,CL,South America,-35.6751,-71.5430
+6,Colombia,CO,South America,4.5709,-74.2973
+7,Peru,PE,South America,-9.1900,-75.0152
+8,Venezuela,VE,South America,6.4238,-66.5897
+9,United Kingdom,GB,Europe,55.3781,-3.4360
+10,France,FR,Europe,46.2276,2.2137
+11,Germany,DE,Europe,51.1657,10.4515
+12,Spain,ES,Europe,40.4637,-3.7492
+13,Italy,IT,Europe,41.8719,12.5674
+14,Netherlands,NL,Europe,52.1326,5.2913
+15,Switzerland,CH,Europe,46.8182,8.2275
+16,Poland,PL,Europe,51.9194,19.1451
+17,Sweden,SE,Europe,60.1282,18.6435
+18,Norway,NO,Europe,60.4720,8.4689
+19,Egypt,EG,Africa,26.8206,30.8025
+20,South Africa,ZA,Africa,-30.5595,22.9375
+21,Nigeria,NG,Africa,9.0820,8.6753
+22,Kenya,KE,Africa,-0.0236,37.9062
+23,Morocco,MA,Africa,31.7917,-7.0926
+24,Ethiopia,ET,Africa,9.1450,40.4897
+25,China,CN,Asia,35.8617,104.1954
+26,Japan,JP,Asia,36.2048,138.2529
+27,India,IN,Asia,20.5937,78.9629
+28,South Korea,KR,Asia,35.9078,127.7669
+29,Thailand,TH,Asia,15.8700,100.9925
+30,Singapore,SG,Asia,1.3521,103.8198
+31,Indonesia,ID,Asia,-0.7893,113.9213
+32,Vietnam,VN,Asia,14.0583,108.2772
+33,Malaysia,MY,Asia,4.2105,101.9758
+34,Australia,AU,Oceania,-25.2744,133.7751
+35,New Zealand,NZ,Oceania,-40.9006,174.8860
+36,Fiji,FJ,Oceania,-17.7134,178.0650

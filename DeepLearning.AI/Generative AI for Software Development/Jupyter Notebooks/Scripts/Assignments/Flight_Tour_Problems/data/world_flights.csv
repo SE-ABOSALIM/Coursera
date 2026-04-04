@@ -1,0 +1,118 @@
+from,to,distance_km,price_usd,from_name,to_name,from_code,to_code
+0,1,2262,127.99,Canada,United States,CA,US
+0,2,3627,616.26,Canada,Mexico,CA,MX
+1,2,1633,248.5,United States,Mexico,US,MX
+1,3,7317,250.56,United States,Brazil,US,BR
+1,9,6830,508.25,United States,United Kingdom,US,GB
+1,10,7666,731.41,United States,France,US,FR
+1,11,7861,239.07,United States,Germany,US,DE
+1,12,7589,247.95,United States,Spain,US,ES
+1,13,8619,680.18,United States,Italy,US,IT
+1,25,11647,731.95,United States,China,US,CN
+1,26,10150,969.3,United States,Japan,US,JP
+1,28,10743,823.95,United States,South Korea,US,KR
+1,30,15290,514.74,United States,Singapore,US,SG
+1,34,15184,985.82,United States,Australia,US,AU
+2,3,6928,580.91,Mexico,Brazil,MX,BR
+2,6,3697,626.52,Mexico,Colombia,MX,CO
+3,4,2924,351.31,Brazil,Argentina,BR,AR
+3,5,3084,217.2,Brazil,Chile,BR,CL
+3,6,3234,303.57,Brazil,Colombia,BR,CO
+3,7,2574,324.01,Brazil,Peru,BR,PE
+3,10,8625,583.78,Brazil,France,BR,FR
+3,12,7850,559.14,Brazil,Spain,BR,ES
+3,13,9070,789.5,Brazil,Italy,BR,IT
+4,5,766,111.02,Argentina,Chile,AR,CL
+4,7,3444,489.52,Argentina,Peru,AR,PE
+5,7,2966,581.22,Chile,Peru,CL,PE
+6,7,1532,369.97,Colombia,Peru,CO,PE
+6,8,878,140.49,Colombia,Venezuela,CO,VE
+8,3,2810,281.22,Venezuela,Brazil,VE,BR
+9,10,1091,187.94,United Kingdom,France,GB,FR
+9,11,1033,309.12,United Kingdom,Germany,GB,DE
+9,12,1659,196.41,United Kingdom,Spain,GB,ES
+9,13,1898,182.84,United Kingdom,Italy,GB,IT
+9,14,677,100,United Kingdom,Netherlands,GB,NL
+9,15,1249,351.39,United Kingdom,Switzerland,GB,CH
+9,16,1530,447.45,United Kingdom,Poland,GB,PL
+9,17,1404,217.61,United Kingdom,Sweden,GB,SE
+9,18,900,445.95,United Kingdom,Norway,GB,NO
+9,19,4200,385.7,United Kingdom,Egypt,GB,EG
+9,20,9881,684.41,United Kingdom,South Africa,GB,ZA
+9,25,7780,282.56,United Kingdom,China,GB,CN
+9,27,7663,457.78,United Kingdom,India,GB,IN
+9,30,10961,997.75,United Kingdom,Singapore,GB,SG
+10,11,816,223.67,France,Germany,FR,DE
+10,12,802,173.26,France,Spain,FR,ES
+10,13,958,196.6,France,Italy,FR,IT
+10,14,694,146.78,France,Netherlands,FR,NL
+10,15,465,122.61,France,Switzerland,FR,CH
+10,19,3312,427.36,France,Egypt,FR,EG
+10,23,1792,248.02,France,Morocco,FR,MA
+10,25,8022,546.44,France,China,FR,CN
+10,26,9850,783.6,France,Japan,FR,JP
+11,12,1615,132.13,Germany,Spain,DE,ES
+11,13,1046,100,Germany,Italy,DE,IT
+11,14,372,100,Germany,Netherlands,DE,NL
+11,15,510,171.38,Germany,Switzerland,DE,CH
+11,16,607,148.79,Germany,Poland,DE,PL
+11,17,1119,203.64,Germany,Sweden,DE,SE
+11,25,7224,686.66,Germany,China,DE,CN
+11,29,8677,321.49,Germany,Thailand,DE,TH
+12,13,1373,222.21,Spain,Italy,ES,IT
+12,14,1469,257.7,Spain,Netherlands,ES,NL
+12,23,1010,195.26,Spain,Morocco,ES,MA
+13,15,649,172.25,Italy,Switzerland,IT,CH
+13,19,2357,247.31,Italy,Egypt,IT,EG
+14,1,7506,576.57,Netherlands,United States,NL,US
+14,13,1266,315.22,Netherlands,Italy,NL,IT
+14,16,947,457.83,Netherlands,Poland,NL,PL
+16,10,1382,239.1,Poland,France,PL,FR
+16,17,913,241.18,Poland,Sweden,PL,SE
+17,18,561,239.88,Sweden,Norway,SE,NO
+18,11,1042,276.56,Norway,Germany,NO,DE
+19,20,6435,786.55,Egypt,South Africa,EG,ZA
+19,23,3697,602.84,Egypt,Morocco,EG,MA
+19,24,2214,385.99,Egypt,Ethiopia,EG,ET
+20,21,4664,458.8,South Africa,Nigeria,ZA,NG
+20,22,3746,309.9,South Africa,Kenya,ZA,KE
+20,34,10389,723.3,South Africa,Australia,ZA,AU
+21,9,5257,402.2,Nigeria,United Kingdom,NG,GB
+21,10,4176,478.44,Nigeria,France,NG,FR
+21,19,3050,571.84,Nigeria,Egypt,NG,EG
+21,22,3391,499.2,Nigeria,Kenya,NG,KE
+22,19,3080,576.43,Kenya,Egypt,KE,EG
+22,24,1059,308.78,Kenya,Ethiopia,KE,ET
+23,13,2070,228.88,Morocco,Italy,MA,IT
+25,26,3047,140.93,China,Japan,CN,JP
+25,27,2984,323.55,China,India,CN,IN
+25,28,2118,199.04,China,South Korea,CN,KR
+25,29,2246,156.65,China,Thailand,CN,TH
+25,30,3837,346.5,China,Singapore,CN,SG
+25,32,2458,315.22,China,Vietnam,CN,VN
+25,33,3527,516.58,China,Malaysia,CN,MY
+25,34,7474,667.25,China,Australia,CN,AU
+26,9,9200,643.79,Japan,United Kingdom,JP,GB
+26,28,943,112.93,Japan,South Korea,JP,KR
+26,29,4315,507.61,Japan,Thailand,JP,TH
+26,30,5250,265.05,Japan,Singapore,JP,SG
+26,32,3865,372.74,Japan,Vietnam,JP,VN
+26,34,6852,578.7,Japan,Australia,JP,AU
+27,29,2383,423.2,India,Thailand,IN,TH
+27,30,3444,395.08,India,Singapore,IN,SG
+28,29,3462,633.77,South Korea,Thailand,KR,TH
+28,30,4567,252.15,South Korea,Singapore,KR,SG
+29,30,1644,246.09,Thailand,Singapore,TH,SG
+29,32,808,545.95,Thailand,Vietnam,TH,VN
+29,33,1301,302.9,Thailand,Malaysia,TH,MY
+30,31,1148,457.87,Singapore,Indonesia,SG,ID
+30,32,1495,367.91,Singapore,Vietnam,SG,VN
+30,33,378,137.07,Singapore,Malaysia,SG,MY
+30,34,4377,260.83,Singapore,Australia,SG,AU
+31,33,1439,274.81,Indonesia,Malaysia,ID,MY
+31,34,3457,360.26,Indonesia,Australia,ID,AU
+32,33,1295,269.36,Vietnam,Malaysia,VN,MY
+34,9,15206,1033.97,Australia,United Kingdom,AU,GB
+34,35,4158,239.2,Australia,New Zealand,AU,NZ
+34,36,4638,615.81,Australia,Fiji,AU,FJ
+35,36,2596,523.83,New Zealand,Fiji,NZ,FJ
