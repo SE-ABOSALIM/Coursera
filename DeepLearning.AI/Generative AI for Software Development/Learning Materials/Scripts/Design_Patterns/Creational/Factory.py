@@ -13,19 +13,19 @@ class Notification(ABC):
 class EmailNotification(Notification):
 
     def send(self, message):
-        print(f"Email gönderildi: {message}")
+        print(f"Email sent: {message}")
 
 
 class SMSNotification(Notification):
 
     def send(self, message):
-        print(f"SMS gönderildi: {message}")
+        print(f"SMS sent: {message}")
 
 
 class PushNotification(Notification):
 
     def send(self, message):
-        print(f"Push bildirimi gönderildi: {message}")
+        print(f"Push notification sent: {message}")
 
 
 # 3. Factory
@@ -43,15 +43,15 @@ class NotificationFactory:
             return PushNotification()
 
         else:
-            raise ValueError("Geçersiz bildirim türü!")
+            raise ValueError("Invalid notification type!")
 
 
-# 4. Kullanım
+# 4. Usage
 notification = NotificationFactory.create_notification("email")
-notification.send("Merhaba, hoş geldin!")
+notification.send("Hello, welcome!")
 
 notification = NotificationFactory.create_notification("sms")
-notification.send("Doğrulama kodunuz: 1234")
+notification.send("Your verification code is: 1234")
 
 notification = NotificationFactory.create_notification("push")
-notification.send("Yeni bir mesajınız var!")
+notification.send("You have a new message!")
