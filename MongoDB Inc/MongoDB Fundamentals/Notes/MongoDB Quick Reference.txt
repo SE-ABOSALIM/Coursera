@@ -1,0 +1,766 @@
+MONGODB
+=======
+
+MongoDB is a NoSQL, document-oriented database that stores data as
+documents in a JSON-like format called BSON (Binary JSON).
+
+DATA STORAGE
+============
+
+MongoDB stores data in this structure:
+
+Database
+  └── Collection
+        └── Document
+              └── Field
+
+Database    = A database
+Collection  = Similar to a table in SQL
+Document    = Similar to a row in SQL
+Field       = Similar to a column in SQL
+
+Example document:
+
+{
+  name: "Abdullah",
+  age: 27,
+  hobbies: ["Football", "Karate"]
+}
+
+
+DATABASE COMMANDS
+=================
+
+show dbs
+→ Shows all databases.
+
+use restaurants
+→ Switches to the "restaurants" database.
+
+db
+→ Shows the current database.
+
+show collections
+→ Shows all collections in the current database.
+
+
+CREATE COLLECTION
+=================
+
+db.createCollection("restaurants")
+→ Creates a collection called "restaurants".
+
+MongoDB can also create a collection automatically when you insert
+the first document into it.
+
+
+INSERT DATA
+===========
+
+db.restaurants.insertOne({
+  name: "Abdullah",
+  age: 27
+})
+→ Inserts one document.
+
+db.restaurants.insertMany([
+  { name: "Abdullah", age: 27 },
+  { name: "Ali", age: 25 }
+])
+→ Inserts multiple documents.
+
+
+FIND / READ DATA
+================
+
+db.restaurants.find()
+→ Returns all documents.
+
+db.restaurants.findOne()
+→ Returns the first matching document.
+
+db.restaurants.find({
+  name: "Abdullah"
+})
+→ Finds documents where name is "Abdullah".
+
+db.restaurants.find({
+  age: 27
+})
+→ Finds documents where age is 27.
+
+
+COMPARISON OPERATORS
+====================
+
+$gt
+→ Greater than (>)
+
+db.restaurants.find({
+  age: { $gt: 25 }
+})
+→ age > 25
+
+
+$gte
+→ Greater than or equal (>=)
+
+db.restaurants.find({
+  age: { $gte: 25 }
+})
+→ age >= 25
+
+
+$lt
+→ Less than (<)
+
+db.restaurants.find({
+  age: { $lt: 25 }
+})
+→ age < 25
+
+
+$lte
+→ Less than or equal (<=)
+
+db.restaurants.find({
+  age: { $lte: 25 }
+})
+→ age <= 25
+
+
+$eq
+→ Equal to (=)
+
+db.restaurants.find({
+  age: { $eq: 27 }
+})
+
+
+$ne
+→ Not equal (!=)
+
+db.restaurants.find({
+  age: { $ne: 27 }
+})
+
+
+$in
+→ Matches any value from the given array.
+
+db.restaurants.find({
+  cuisine: {
+    $in: ["American", "Italian"]
+  }
+})
+→ cuisine is either American OR Italian.
+
+
+$nin
+→ Does NOT match any value from the given array.
+
+db.restaurants.find({
+  cuisine: {
+    $nin: ["American", "Italian"]
+  }
+})
+
+
+LOGICAL OPERATORS
+=================
+
+$and
+→ ALL conditions must be true.
+
+db.restaurants.find({
+  $and: [
+    { age: { $gt: 20 } },
+    { age: { $lt: 30 } }
+  ]
+})
+
+Can also be written as:
+
+db.restaurants.find({
+  age: {
+    $gt: 20,
+    $lt: 30
+  }
+})
+
+
+$or
+→ At least ONE condition must be true.
+
+db.restaurants.find({
+  $or: [
+    { age: 20 },
+    { age: 30 }
+  ]
+})
+
+
+$nor
+→ NONE of the conditions should be true.
+
+db.restaurants.find({
+  $nor: [
+    { age: 20 },
+    { age: 30 }
+  ]
+})
+
+
+$not
+→ Negates a condition.
+
+db.restaurants.find({
+  age: {
+    $not: { $gt: 30 }
+  }
+})
+→ age <= 30
+
+
+FIELD EXISTENCE
+===============
+
+$exists
+→ Checks whether a field exists.
+
+db.restaurants.find({
+  birth: { $exists: true }
+})
+→ Finds documents that have a birth field.
+
+db.restaurants.find({
+  birth: { $exists: false }
+})
+→ Finds documents that do NOT have a birth field.
+
+
+UPDATE
+======
+
+General syntax:
+
+db.collection.updateOne(
+  FILTER,
+  UPDATE
+)
+
+
+Example:
+
+db.restaurants.updateOne(
+  { name: "Abdullah" },
+  { $set: { age: 28 } }
+)
+
+FILTER
+→ Which document should be updated?
+
+UPDATE
+→ What should be changed?
+
+
+$set
+====
+
+Adds a new field OR changes an existing field.
+
+db.restaurants.updateOne(
+  { name: "Abdullah" },
+  { $set: { birth: "1999-01-01" } }
+)
+
+IMPORTANT:
+$set does NOT delete the other fields.
+
+For example:
+
+BEFORE:
+
+{
+  name: "Abdullah",
+  surname: "Ali",
+  age: 27
+}
+
+AFTER:
+
+{
+  name: "Abdullah",
+  surname: "Ali",
+  age: 27,
+  birth: "1999-01-01"
+}
+
+
+UPDATE MULTIPLE FIELDS
+=====================
+
+db.restaurants.updateOne(
+  { name: "Abdullah" },
+  {
+    $set: {
+      age: 28,
+      birth: "1999-01-01"
+    }
+  }
+)
+
+
+$inc
+====
+
+Increases or decreases a numeric value.
+
+db.restaurants.updateOne(
+  { name: "Abdullah" },
+  { $inc: { age: 1 } }
+)
+→ Increases age by 1.
+
+$inc: { age: -1 }
+→ Decreases age by 1.
+
+
+$unset
+======
+
+Removes a field.
+
+db.restaurants.updateOne(
+  { name: "Abdullah" },
+  { $unset: { birth: "" } }
+)
+→ Removes the birth field.
+
+
+updateMany()
+=============
+
+Updates all matching documents.
+
+db.restaurants.updateMany(
+  { cuisine: "American" },
+  { $set: { country: "USA" } }
+)
+→ Adds country = "USA" to every American restaurant.
+
+
+DELETE
+======
+
+deleteOne()
+
+db.restaurants.deleteOne({
+  name: "Abdullah"
+})
+→ Deletes one matching document.
+
+
+deleteMany()
+
+db.restaurants.deleteMany({
+  age: { $lt: 18 }
+})
+→ Deletes all documents where age < 18.
+
+
+ARRAYS
+======
+
+Example:
+
+{
+  name: "Abdullah",
+  hobbies: ["Football", "Karate"]
+}
+
+
+Find a value inside an array:
+
+db.restaurants.find({
+  hobbies: "Football"
+})
+→ Finds documents where hobbies contains "Football".
+
+
+$in WITH ARRAYS
+===============
+
+db.restaurants.find({
+  hobbies: {
+    $in: ["Football", "Karate"]
+  }
+})
+→ Finds documents containing Football OR Karate.
+
+
+ARRAY INDEX
+===========
+
+MongoDB array indexes start at 0.
+
+Example:
+
+grades: [
+  { score: 26 },
+  { score: 40 },
+  { score: 80 }
+]
+
+Index:
+
+grades[0]
+→ MongoDB:
+
+"grades.0"
+
+
+ACCESS THE FIRST ARRAY ELEMENT
+=============================
+
+db.restaurants.find({
+  "grades.0.score": { $gt: 20 }
+})
+
+→ Checks ONLY the first element of the grades array.
+
+If:
+
+grades[0].score = 26
+
+Then:
+
+26 > 20
+→ TRUE
+
+
+ANY ARRAY ELEMENT
+=================
+
+db.restaurants.find({
+  "grades.score": { $gt: 30 }
+})
+
+→ Checks whether ANY element in the grades array has
+  a score greater than 30.
+
+
+IMPORTANT DIFFERENCE
+====================
+
+"grades.0.score"
+→ Checks ONLY the first element.
+
+"grades.1.score"
+→ Checks ONLY the second element.
+
+"grades.2.score"
+→ Checks ONLY the third element.
+
+"grades.score"
+→ Checks ANY element in the array.
+
+
+NESTED OBJECTS
+==============
+
+Example:
+
+{
+  address: {
+    city: "Istanbul",
+    street: "Example Street"
+  }
+}
+
+
+Access a nested field:
+
+db.restaurants.find({
+  "address.city": "Istanbul"
+})
+→ Finds documents where address.city is Istanbul.
+
+
+ARRAY OPERATORS
+===============
+
+$push
+=====
+
+Adds an element to the END of an array.
+
+db.restaurants.updateOne(
+  { name: "Abdullah" },
+  { $push: { hobbies: "Swimming" } }
+)
+
+
+$addToSet
+=========
+
+Adds an element only if it does NOT already exist.
+
+db.restaurants.updateOne(
+  { name: "Abdullah" },
+  { $addToSet: { hobbies: "Football" } }
+)
+
+→ Prevents duplicate "Football" values.
+
+
+$pop
+====
+
+Removes an element from an array.
+
+db.restaurants.updateOne(
+  { name: "Abdullah" },
+  { $pop: { hobbies: 1 } }
+)
+→ Removes the LAST element.
+
+db.restaurants.updateOne(
+  { name: "Abdullah" },
+  { $pop: { hobbies: -1 } }
+)
+→ Removes the FIRST element.
+
+
+ARRAY OF OBJECTS
+================
+
+Example:
+
+{
+  grades: [
+    { grade: "B", score: 26 },
+    { grade: "A", score: 40 }
+  ]
+}
+
+
+db.restaurants.find({
+  "grades.score": 40
+})
+→ Finds documents where ANY grade object has score = 40.
+
+
+db.restaurants.find({
+  "grades.0.score": 26
+})
+→ Checks ONLY the first grade object's score.
+
+
+PROJECTION
+==========
+
+Used to control which fields are returned.
+
+db.restaurants.find(
+  { name: "Abdullah" },
+  { name: 1, age: 1 }
+)
+
+→ Returns only name and age.
+
+By default, _id is also returned.
+
+
+HIDE _id
+========
+
+db.restaurants.find(
+  { name: "Abdullah" },
+  { _id: 0, name: 1, age: 1 }
+)
+
+→ Returns name and age but hides _id.
+
+
+SORT
+====
+
+db.restaurants.find().sort({
+  age: 1
+})
+→ Ascending order (small → large).
+
+db.restaurants.find().sort({
+  age: -1
+})
+→ Descending order (large → small).
+
+
+LIMIT
+=====
+
+db.restaurants.find().limit(5)
+→ Returns at most 5 documents.
+
+
+SKIP
+====
+
+db.restaurants.find().skip(5)
+→ Skips the first 5 documents.
+
+
+COUNT
+=====
+
+db.restaurants.countDocuments()
+→ Counts all documents.
+
+db.restaurants.countDocuments({
+  cuisine: "American"
+})
+→ Counts documents where cuisine = American.
+
+
+DISTINCT
+========
+
+db.restaurants.distinct("cuisine")
+→ Returns unique cuisine values.
+
+
+REGEX
+=====
+
+db.restaurants.find({
+  name: {
+    $regex: "Abdullah"
+  }
+})
+→ Finds names containing "Abdullah".
+
+
+CASE-INSENSITIVE REGEX
+======================
+
+db.restaurants.find({
+  name: {
+    $regex: "abdullah",
+    $options: "i"
+  }
+})
+→ Case-insensitive search.
+
+
+IMPORTANT updateOne() RULE
+==========================
+
+WRONG:
+
+db.restaurants.updateOne({
+  name: "Abdullah",
+  age: 27
+})
+
+→ The second update document requires an atomic operator.
+
+
+CORRECT:
+
+db.restaurants.updateOne(
+  { name: "Abdullah" },
+  { $set: { age: 28 } }
+)
+
+
+COMMON OPERATORS - QUICK REFERENCE
+==================================
+
+$set
+→ Add or change a field.
+
+$unset
+→ Remove a field.
+
+$inc
+→ Increase/decrease a number.
+
+$push
+→ Add an element to an array.
+
+$addToSet
+→ Add an element to an array without duplicates.
+
+$pop
+→ Remove the first/last array element.
+
+$gt
+→ Greater than (>)
+
+$gte
+→ Greater than or equal (>=)
+
+$lt
+→ Less than (<)
+
+$lte
+→ Less than or equal (<=)
+
+$eq
+→ Equal (=)
+
+$ne
+→ Not equal (!=)
+
+$in
+→ Matches one of the specified values.
+
+$nin
+→ Does not match any specified value.
+
+$exists
+→ Checks whether a field exists.
+
+$or
+→ At least one condition must be true.
+
+$and
+→ All conditions must be true.
+
+$not
+→ Negates a condition.
+
+
+SQL → MONGODB MENTAL MAP
+========================
+
+Database
+→ Database
+
+Table
+→ Collection
+
+Row
+→ Document
+
+Column
+→ Field
+
+WHERE
+→ find()
+
+INSERT
+→ insertOne() / insertMany()
+
+UPDATE
+→ updateOne() / updateMany()
+
+DELETE
+→ deleteOne() / deleteMany()
+
+WHERE age > 30
+→ { age: { $gt: 30 } }
+
+WHERE name = "Abdullah"
+→ { name: "Abdullah" }
